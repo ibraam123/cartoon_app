@@ -144,6 +144,31 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                                       buttonText: AuthKeys.signUp.tr(),
                                       onTap: _navigateToSignUp,
                                     ),
+                                    SizedBox(height: height * 0.015),
+                                    Row(
+                                      children: [
+                                        const Expanded(child: Divider()),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: width * 0.04),
+                                          child: Text(
+                                            AuthKeys.or.tr(),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge
+                                                ?.copyWith(
+                                                    color: AppColors.greyDark),
+                                          ),
+                                        ),
+                                        const Expanded(child: Divider()),
+                                      ],
+                                    ),
+                                    SizedBox(height: height * 0.015),
+                                    CustomButton(isLoading: false, text: AuthKeys.continueWithGoogle.tr(),
+                                      width: width,
+                                      onTap: _signInWithGoogle,
+                                      color: AppColors.primary,
+                                    ),
                                   ],
                                 );
                               },
@@ -161,6 +186,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         ],
       ),
     );
+  }
+
+  void _signInWithGoogle() {
+    context.read<AuthCubit>().signInWithGoogle();
   }
 
   void _authListener(BuildContext context, AuthState state) {
