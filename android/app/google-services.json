@@ -1,0 +1,163 @@
+{
+  "project_info": {
+    "project_number": "894725618175",
+    "firebase_url": "https://meal-dash-72a04-default-rtdb.firebaseio.com",
+    "project_id": "meal-dash-72a04",
+    "storage_bucket": "meal-dash-72a04.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894725618175:android:d13f73a018c5770e088fca",
+        "android_client_info": {
+          "package_name": "com.example.cartoon_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByY1b4rSFPCOP6o_uh1OTweegMN17FP2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "894725618175-qfs4f3t9pnl7ldh9rlu651bepagk16ll.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kanteenMarJohn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894725618175:android:5ad722700a1eafe4088fca",
+        "android_client_info": {
+          "package_name": "com.example.kanteen_mar_john"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByY1b4rSFPCOP6o_uh1OTweegMN17FP2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "894725618175-qfs4f3t9pnl7ldh9rlu651bepagk16ll.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kanteenMarJohn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894725618175:android:b8c71b2ade5ccf76088fca",
+        "android_client_info": {
+          "package_name": "com.example.mealdash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894725618175-vsldqt3u23m56k3k5ah2lc5rlpc1o6g0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mealdash",
+            "certificate_hash": "cc22806f17a70132a19927a7a80ffa01ac40dc95"
+          }
+        },
+        {
+          "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByY1b4rSFPCOP6o_uh1OTweegMN17FP2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "894725618175-qfs4f3t9pnl7ldh9rlu651bepagk16ll.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kanteenMarJohn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894725618175:android:7cbe603c832872c4088fca",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByY1b4rSFPCOP6o_uh1OTweegMN17FP2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894725618175-2ur0h4u472ht81i3j6tjhop5dtm2v18k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "894725618175-qfs4f3t9pnl7ldh9rlu651bepagk16ll.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kanteenMarJohn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
