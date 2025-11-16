@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/errors/error.dart';
 import '../../data/models/user_model.dart';
@@ -12,13 +13,15 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(
     this._auth,
-      this._userRepository
+      this._userRepository,
+      this._googleSignIn,
   ) : super(AuthInitial()){
     checkAuthStatus();
   }
 
   final FirebaseAuth _auth;
   final UserRepository _userRepository;
+  final GoogleSignIn _googleSignIn;
   SharedPreferences? _prefs;
   bool rememberMe = false;
 
@@ -85,6 +88,49 @@ class AuthCubit extends Cubit<AuthState> {
 
 
 
+  Future<void> signInWithGoogle() async {
+    emit(AuthLoading(action: AuthAction.google));
+    try {
+      UserCredential userCred;
+
+      // Mobile/Desktop: google_sign_in v7
+      await _googleSignIn.initialize(
+        clientId: "1015696421423-th7o6o7iekmqanad9c9oood4jktnsp82.apps.googleusercontent.com",
+      );
+
+      final account = await _googleSignIn.authenticate();
+      final idToken = (account.authentication).idToken;
+      if (idToken == null) throw Exception('Google idToken was null');
+
+      final credential = GoogleAuthProvider.credential(idToken: idToken);
+      userCred = await _auth.signInWithCredential(credential);
+
+      final firebaseUser = userCred.user!;
+      UserModel user;
+
+      try {
+        // ✅ حاول تجيب اليوزر من الريبو
+        user = await _userRepository.getUser(firebaseUser.uid);
+      } catch (_) {
+        // لو مش موجود، أنشئ واحد جديد
+        final parts = (firebaseUser.displayName ?? '').trim().split(' ');
+        user = UserModel(
+          id: firebaseUser.uid,
+          email: firebaseUser.email ?? '',
+          firstName: parts.isNotEmpty ? parts.first : '',
+          lastName: parts.length > 1 ? parts.sublist(1).join(' ') : '',
+        );
+        await _userRepository.updateUser(user);
+
+      }
+      await _cacheUser(user);
+      emit(AuthSuccess(user: user));
+    } catch (e) {
+      emit(AuthError(FailureHandler.mapException(e)));
+    }
+  }
+
+
 
   Future<void> sendPasswordResetEmail(String email) async {
     emit(ForgotPasswordLoading());
@@ -103,6 +149,8 @@ class AuthCubit extends Cubit<AuthState> {
       )));
     }
   }
+
+
 
   Future<void> signInWithEmailAndPassword({
     required String email,

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'features/auth/data/repo/user_repo.dart';
 import 'features/auth/domain/repo/user_repo_impl.dart';
@@ -14,6 +15,11 @@ Future<void> init() async {
   serviceLocator.registerLazySingleton<FirebaseFirestore>(
         () => FirebaseFirestore.instance,
   );
+
+  serviceLocator.registerLazySingleton<GoogleSignIn>(
+        () => GoogleSignIn.instance,
+  );
+
   serviceLocator.registerLazySingleton<UserRepository>(
         () => UserRepositoryImpl(serviceLocator<FirebaseFirestore>()),
   );
@@ -22,6 +28,7 @@ Future<void> init() async {
         () => AuthCubit(
       serviceLocator<FirebaseAuth>(),
       serviceLocator<UserRepository>(),
+          serviceLocator<GoogleSignIn>(),
     ),
   );
 

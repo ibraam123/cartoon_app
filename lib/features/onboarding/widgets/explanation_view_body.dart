@@ -1,10 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/config/app_keys_localization.dart';
-import '../../../core/config/routes.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../models/explanation_screen_model.dart';
 
