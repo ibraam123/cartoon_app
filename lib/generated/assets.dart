@@ -5,7 +5,10 @@ class Assets {
   static const String assetsHandshakeBlue = 'assets/handshake_blue.json';
   static const String iconsIcon = 'assets/icons/icon.png';
   static const String iconsIcon2 = 'assets/icons/icon2.png';
+  static const String iconsIcon3 = 'assets/icons/icon3.png';
   static const String iconsIcon6 = 'assets/icons/icon6.png';
+  static const String iconsIconRBkg = 'assets/icons/icon_r_bkg.png';
+  static const String iconsTesttest = 'assets/icons/testtest.png';
   static const String imagesChat = 'assets/images/chat.png';
   static const String imagesF1 = 'assets/images/f1.png';
   static const String imagesF2 = 'assets/images/f2.png';

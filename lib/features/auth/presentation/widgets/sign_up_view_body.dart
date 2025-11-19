@@ -58,7 +58,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
             );
           }
           if (state is AuthSuccess) {
-            GoRouter.of(context).go(AppRoutes.kIdentificationView);
+
           }
         },
         builder: (context, state) {

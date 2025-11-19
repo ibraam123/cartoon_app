@@ -1,11 +1,8 @@
-import 'package:cartoon_app/features/onboarding/views/explanation_view.dart';
-import 'package:cartoon_app/features/onboarding/views/identification_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/views/forget_password_view.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
-import '../../features/onboarding/models/explanation_screen_model.dart';
 import '../../features/splash/splash_view.dart';
 
 class AppRoutes {
@@ -13,8 +10,6 @@ class AppRoutes {
   static const String kSplashView = '/';
   static const String kSignUpView = '/signUp';
   static const String kSignInView = '/signIn';
-  static const String kIdentificationView = '/identification';
-  static const String kExplanationView = '/explanation';
   static const String kForgetPasswordView = '/forgetPassword';
 
   static final GoRouter router = GoRouter(
@@ -31,17 +26,6 @@ class AppRoutes {
       GoRoute(
         path: kSignInView,
         builder: (context, state) => const SignInView(),
-      ),
-      GoRoute(
-        path: kIdentificationView,
-        builder: (context, state) => const IdentificationView(),
-      ),
-      GoRoute(
-        path: kExplanationView,
-        builder: (context, state) {
-          final model = state.extra as ExplanationScreenModel;
-          return ExplanationView(explanationScreenModel: model);
-        },
       ),
       GoRoute(
         path: kForgetPasswordView,
