@@ -40,10 +40,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     if (currentState is AuthSuccess && currentState.user != null) {
       // User is logged in - go to main screen
-      GoRouter.of(context).go(AppRoutes.kSignInView);
+      GoRouter.of(context).go(AppRoutes.kAuth);
     } else {
       // User is not logged in - go to sign up
-      GoRouter.of(context).go(AppRoutes.kSignInView);
+      GoRouter.of(context).go(AppRoutes.kOnboardingView);
     }
   }
 

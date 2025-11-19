@@ -1,3 +1,4 @@
+import 'package:cartoon_app/core/config/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -63,7 +64,7 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffixIconButton,
         prefixIcon: prefixIcon == null ? null : Icon(
           prefixIcon,
-          color: Color(0xff9560e1),
+          color: AppColors.greyDark,
         ),
       ),
     );

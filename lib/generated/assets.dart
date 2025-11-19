@@ -23,6 +23,9 @@ class Assets {
   static const String imagesLogIn = 'assets/images/log_in.png';
   static const String imagesLoginImage = 'assets/images/login_image.svg';
   static const String imagesLogoImage = 'assets/images/logo_image.png';
+  static const String imagesOnboarding1 = 'assets/images/onboarding1.jpeg';
+  static const String imagesOnboarding2 = 'assets/images/onboarding2.jpeg';
+  static const String imagesOnboarding3 = 'assets/images/onboarding3.jpeg';
   static const String imagesPlaces = 'assets/images/places.png';
   static const String imagesProfile = 'assets/images/profile.png';
   static const String imagesSignLanguage = 'assets/images/sign_language.png';

@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/presentation/views/auth_test_view.dart';
 import '../../features/auth/presentation/views/forget_password_view.dart';
-import '../../features/auth/presentation/views/sign_in_view.dart';
-import '../../features/auth/presentation/views/sign_up_view.dart';
+import '../../features/onboarding/views/onboarding_view.dart';
 import '../../features/splash/splash_view.dart';
 
 class AppRoutes {
@@ -11,25 +11,29 @@ class AppRoutes {
   static const String kSignUpView = '/signUp';
   static const String kSignInView = '/signIn';
   static const String kForgetPasswordView = '/forgetPassword';
+  static const String kOnboardingView = '/onboarding';
+  static const String kAuth = '/auth';
 
   static final GoRouter router = GoRouter(
     initialLocation: kSplashView,
+    debugLogDiagnostics: true,
     routes: <GoRoute>[
       GoRoute(
         path: kSplashView,
         builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
-        path: kSignUpView,
-        builder: (context, state) => const SignUpView(),
-      ),
-      GoRoute(
-        path: kSignInView,
-        builder: (context, state) => const SignInView(),
-      ),
-      GoRoute(
+        name: 'forgetPassword',
         path: kForgetPasswordView,
         builder: (context, state) => const ForgetPasswordView(),
+      ),
+      GoRoute(
+        path: kOnboardingView,
+        builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        path: kAuth,
+        builder: (context, state) => const AuthTestView(),
       ),
     ],
   );
