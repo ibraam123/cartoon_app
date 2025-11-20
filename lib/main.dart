@@ -13,6 +13,8 @@ import 'init_dependcies.dart';
 
 Future<void> main() async {
 
+  
+
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);

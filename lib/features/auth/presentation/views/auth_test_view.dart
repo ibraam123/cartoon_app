@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/config/app_keys_localization.dart';
+import '../../../../core/config/routes.dart';
 import '../../../../core/widgets/custom_snackbar.dart';
 import '../logic/auth_cubit.dart';
 import '../widgets/segment_option.dart';
@@ -26,7 +27,6 @@ class _AuthTestViewState extends State<AuthTestView> {
   bool isObscure = true;
   int _tabIndex = 0;
 
-  // form controllers (example)
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _firstNameController = TextEditingController();
@@ -90,6 +90,7 @@ class _AuthTestViewState extends State<AuthTestView> {
             icon: Icons.check_circle_outline,
             backgroundColor: Colors.green,
           );
+          GoRouter.of(context).go(AppRoutes.kMain);
         }
       },
       child: buildUi(),
@@ -155,14 +156,30 @@ class _AuthTestViewState extends State<AuthTestView> {
                             label: 'Sign In',
                             index: 0,
                             selectedIndex: _tabIndex,
-                            onTap: () => setState(() => _tabIndex = 0)  ,
+                            onTap: () {
+                              setState(() {
+                                _tabIndex = 0;
+                                _firstNameController.clear();
+                                _lastNameController.clear();
+                                _emailController.clear();
+                                _passwordController.clear();
+                              });
+                            },
                           ),
                           SizedBox(width: 12.w),
                           SegmentOption(
                             label: 'Sign Up',
                             index: 1,
                             selectedIndex: _tabIndex,
-                            onTap: () => setState(() => _tabIndex = 1),
+                            onTap: () {
+                              setState(() {
+                                _tabIndex = 1;
+                                _firstNameController.clear();
+                                _lastNameController.clear();
+                                _emailController.clear();
+                                _passwordController.clear();
+                              });
+                            },
                           ),
                         ],
                       ),
