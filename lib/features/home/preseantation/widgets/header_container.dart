@@ -5,7 +5,9 @@ import '../../../../core/config/app_colors.dart';
 import '../../../auth/presentation/widgets/custom_form_text_field.dart';
 
 class HeaderContainer extends StatelessWidget {
-  const HeaderContainer({super.key});
+  const HeaderContainer({super.key , required this.title, required this.subTitle,});
+  final String title;
+  final String subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +40,14 @@ class HeaderContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Welcome back,",
+                    title,
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: Colors.grey,
                     ),
                   ),
                   Text(
-                    "John Doe👋",
+                    subTitle,
                     style: TextStyle(
                       fontSize: 20.sp,
                       color: Colors.black,

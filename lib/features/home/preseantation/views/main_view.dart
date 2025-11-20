@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_bottom_navbar.dart';
+import '../../../rewards/presentation/views/rewards_view.dart';
 import 'home_view.dart';
 
 class MainView extends StatefulWidget {
@@ -16,7 +17,7 @@ class _MainViewState extends State<MainView> {
 
   final List<Widget> _pages = [
     HomeView(),
-    SearchView(),
+    RewardsView(),
     FavoriteView(),
     CartView(),
   ];
@@ -41,16 +42,7 @@ class _MainViewState extends State<MainView> {
     );
   }
 }
-class SearchView extends StatelessWidget {
-  const SearchView({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Search View'),
-    );
-  }
-}
 class FavoriteView extends StatelessWidget {
   const FavoriteView({super.key});
 

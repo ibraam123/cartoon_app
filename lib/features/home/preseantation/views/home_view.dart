@@ -15,7 +15,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        HeaderContainer(),
+        HeaderContainer(
+          title: "Welcome back,",
+          subTitle: "Michael",
+        ),
         SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),

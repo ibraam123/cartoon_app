@@ -18,6 +18,7 @@ class HeadersSection extends StatelessWidget {
           style: TextStyle(
             fontSize: 16.sp,
             color: Colors.black,
+            fontWeight: FontWeight.bold,
           ),
         ),
         haveSeeAll! ? TextButton(
