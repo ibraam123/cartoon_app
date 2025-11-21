@@ -47,4 +47,6 @@ class AppTextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,
   );
+
+
 }

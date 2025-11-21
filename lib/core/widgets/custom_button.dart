@@ -42,7 +42,7 @@ class CustomButton extends StatelessWidget {
           height: 50.h, // Adjusted height for better responsiveness
           decoration: BoxDecoration(
             color: onTap == null ? theme.colorScheme.secondaryContainer : color,
-            borderRadius: BorderRadius.circular(25.r), // Adjusted border radius
+            borderRadius: BorderRadius.circular(16.r), // Adjusted border radius
           ),
           child: Center(
             child: isLoading

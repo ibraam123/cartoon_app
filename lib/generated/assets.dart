@@ -5,7 +5,10 @@ class Assets {
   static const String assetsHandshakeBlue = 'assets/handshake_blue.json';
   static const String iconsIcon = 'assets/icons/icon.png';
   static const String iconsIcon2 = 'assets/icons/icon2.png';
+  static const String iconsIcon3 = 'assets/icons/icon3.png';
   static const String iconsIcon6 = 'assets/icons/icon6.png';
+  static const String iconsIconRBkg = 'assets/icons/icon_r_bkg.png';
+  static const String iconsTesttest = 'assets/icons/testtest.png';
   static const String imagesChat = 'assets/images/chat.png';
   static const String imagesF1 = 'assets/images/f1.png';
   static const String imagesF2 = 'assets/images/f2.png';
@@ -20,6 +23,9 @@ class Assets {
   static const String imagesLogIn = 'assets/images/log_in.png';
   static const String imagesLoginImage = 'assets/images/login_image.svg';
   static const String imagesLogoImage = 'assets/images/logo_image.png';
+  static const String imagesOnboarding1 = 'assets/images/onboarding1.jpeg';
+  static const String imagesOnboarding2 = 'assets/images/onboarding2.jpeg';
+  static const String imagesOnboarding3 = 'assets/images/onboarding3.jpeg';
   static const String imagesPlaces = 'assets/images/places.png';
   static const String imagesProfile = 'assets/images/profile.png';
   static const String imagesSignLanguage = 'assets/images/sign_language.png';

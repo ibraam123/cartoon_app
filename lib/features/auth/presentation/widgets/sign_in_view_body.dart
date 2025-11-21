@@ -1,20 +1,4 @@
-import 'package:cartoon_app/features/auth/presentation/widgets/remember_and_forget_message.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../../../core/config/app_colors.dart';
-import '../../../../core/config/app_keys_localization.dart';
-import '../../../../core/config/routes.dart';
-import '../../../../core/widgets/custom_button.dart';
-import '../../../../core/widgets/custom_snackbar.dart';
-import '../../../../core/widgets/custom_welcome_message_container.dart';
-import '../logic/auth_cubit.dart';
-import 'custom_form_text_field.dart';
-import 'message_second_option.dart';
-
+/*
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
 
@@ -223,3 +207,4 @@ class _SignInViewBodyState extends State<SignInViewBody> {
     GoRouter.of(context).pushReplacement(AppRoutes.kSignUpView);
   }
 }
+*/
