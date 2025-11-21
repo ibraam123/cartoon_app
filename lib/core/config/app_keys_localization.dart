@@ -1,5 +1,3 @@
-/// `AppKeys` is a utility class that centralizes all localization keys used within the application.
-/// This approach helps in managing and accessing localized strings more efficiently.
 
 /// `AppKeys` is a utility class that centralizes all localization keys used within the application.
 /// This helps avoid hardcoding strings and makes localization easier to maintain.

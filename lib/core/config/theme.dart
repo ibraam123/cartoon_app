@@ -4,7 +4,7 @@ class AppTheme {
   // Light Theme
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    primaryColor: const Color(0xff9560e1),
+    primaryColor: const Color(0xff7dc6e1),
     primaryColorDark: const Color(0xFF004799),
     primaryColorLight: const Color(0xFF4D94FF),
     colorScheme: const ColorScheme.light(
@@ -144,7 +144,7 @@ class AppTheme {
   // Dark Theme
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: const Color(0xff9560e1),
+    primaryColor: const Color(0xff7dc6e1),
     primaryColorDark: const Color(0xFF0066CC),
     primaryColorLight: const Color(0xFF80B3FF),
     colorScheme: const ColorScheme.dark(
