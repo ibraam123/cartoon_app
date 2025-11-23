@@ -1,18 +1,19 @@
 import 'package:cartoon_app/core/config/app_colors.dart';
 import 'package:cartoon_app/core/widgets/custom_button.dart';
 import 'package:cartoon_app/features/auth/presentation/widgets/custom_form_text_field.dart';
+import 'package:cartoon_app/features/auth/presentation/widgets/or_divider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../core/config/app_keys_localization.dart';
 import '../../../../core/config/routes.dart';
 import '../../../../core/widgets/custom_snackbar.dart';
 import '../logic/auth_cubit.dart';
 import '../widgets/segment_option.dart';
+import '../widgets/social_sign_in.dart';
 
 class AuthTestView extends StatefulWidget {
   const AuthTestView({super.key});
@@ -27,11 +28,19 @@ class _AuthTestViewState extends State<AuthTestView> {
   bool isObscure = true;
   int _tabIndex = 0;
 
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _firstNameController = TextEditingController();
-  final TextEditingController _lastNameController = TextEditingController();
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController ;
+  late final TextEditingController _firstNameController ;
+  late final TextEditingController _lastNameController ;
 
+  @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _firstNameController = TextEditingController();
+    _lastNameController = TextEditingController();
+  }
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
@@ -159,6 +168,10 @@ class _AuthTestViewState extends State<AuthTestView> {
                             onTap: () {
                               setState(() {
                                 _tabIndex = 0;
+
+                                _formKey.currentState?.reset();
+
+
                                 _firstNameController.clear();
                                 _lastNameController.clear();
                                 _emailController.clear();
@@ -174,6 +187,9 @@ class _AuthTestViewState extends State<AuthTestView> {
                             onTap: () {
                               setState(() {
                                 _tabIndex = 1;
+
+                                _formKey.currentState?.reset();
+
                                 _firstNameController.clear();
                                 _lastNameController.clear();
                                 _emailController.clear();
@@ -340,7 +356,11 @@ class _AuthTestViewState extends State<AuthTestView> {
                 width: double.infinity,
                 color: AppColors.primary,
               ),
-              SizedBox(height: 24.h),
+              SizedBox(height: 16.h),
+              OrDivider(),
+              SizedBox(height: 16.h),
+              SocialSignIn(),
+              SizedBox(height: 16.h),
               Text(
                 "🎓",
                 style: TextStyle(
@@ -362,6 +382,13 @@ class _AuthTestViewState extends State<AuthTestView> {
     );
   }
 }
+
+
+
+
+
+
+
 /* Container(
                   decoration: BoxDecoration(
                     color: const Color(0xFFF2F4F7),

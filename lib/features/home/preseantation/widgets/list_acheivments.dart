@@ -2,36 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ListAchievements extends StatelessWidget {
-  const ListAchievements({super.key , required this.iconText});
+  const ListAchievements({super.key, required this.iconText});
   final String iconText;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 80.h,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.only(right: 10.w),
-              width: 100.w,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16.r),
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        separatorBuilder: (_, __) => SizedBox(width: 12.w),
 
-              ),
-              child: Center(
-                child: Text(
-                  iconText,
-                  style: TextStyle(
-                    fontSize: 32.sp,
-                    color: Colors.black,
-                  ),
+        physics: const BouncingScrollPhysics(), // nicer scroll
+        padding: EdgeInsets.zero,
+
+        itemBuilder: (context, index) {
+          return Container(
+            width: 80.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(18.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Center(
+              child: Text(
+                iconText,
+                style: TextStyle(
+                  fontSize: 30.sp,
                 ),
               ),
-            );
-          }
+            ),
+          );
+        },
       ),
     );
   }

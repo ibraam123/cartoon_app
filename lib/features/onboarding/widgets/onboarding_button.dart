@@ -42,7 +42,7 @@ class OnBoardingButton extends StatelessWidget {
             ),
           ),
           SizedBox(width: 6.w),
-          if (icon != null) Icon(icon, color: Colors.white, size: 20.sp),
+          if (icon != null) Expanded(child: Icon(icon, color: Colors.white, size: 20.sp)),
         ],
       ),
     );

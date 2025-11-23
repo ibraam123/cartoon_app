@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EDUTOON</string>
+    <string name="facebook_app_id">726267990502381</string>
+    <string name="facebook_client_token">c2d6f889f91fafcc4fdbd89131941251</string>
+    <string name="fb_login_protocol_scheme">fb12da56a79fe666edb3cdbb564fe87687</string>
+
+
+</resources>

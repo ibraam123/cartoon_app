@@ -14,7 +14,7 @@ class AppTheme {
       error: Color(0xFFD32F2F),
       onSurface: Color(0xFF1A1A1A),
     ),
-    scaffoldBackgroundColor: const Color(0xFFF8F9FA),
+    scaffoldBackgroundColor: const Color(0xFFF8F8F8),
     cardColor: const Color(0xFFFFFFFF),
 
     // Text Theme

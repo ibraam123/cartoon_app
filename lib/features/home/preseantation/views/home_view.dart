@@ -1,4 +1,6 @@
+import 'package:cartoon_app/features/auth/presentation/logic/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/continues_container.dart';
@@ -17,7 +19,7 @@ class HomeView extends StatelessWidget {
       children: [
         HeaderContainer(
           title: "Welcome back,",
-          subTitle: "Michael",
+          subTitle: context.watch<AuthCubit>().fullName,
         ),
         SizedBox(height: 20.h),
         Padding(
@@ -79,9 +81,8 @@ class HomeView extends StatelessWidget {
         SizedBox(height: 10.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: ListAchievements(
-            iconText: "📚",
-          ) ,
+          child: ListAchievements(iconText: "⭐"),
+
         ),
         SizedBox(height: 20.h),
 

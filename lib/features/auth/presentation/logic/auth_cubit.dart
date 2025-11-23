@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/errors/error.dart';
@@ -13,17 +14,31 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(
     this._auth,
-      this._userRepository,
-      this._googleSignIn,
-  ) : super(AuthInitial()){
+    this._userRepository,
+    this._googleSignIn,
+    this._facebookAuth,
+  ) : super(AuthInitial()) {
     checkAuthStatus();
   }
 
   final FirebaseAuth _auth;
   final UserRepository _userRepository;
   final GoogleSignIn _googleSignIn;
+  final FacebookAuth _facebookAuth;
   SharedPreferences? _prefs;
   bool rememberMe = false;
+
+  String get fullName {
+    if (state is AuthSuccess) {
+      final user = (state as AuthSuccess).user;
+      final firstName = user?.firstName ?? '';
+      final lastName = user?.lastName ?? '';
+      final capitalizedFirstName = firstName.isNotEmpty ? '${firstName[0].toUpperCase()}${firstName.substring(1)}' : '';
+      final capitalizedLastName = lastName.isNotEmpty ? '${lastName[0].toUpperCase()}${lastName.substring(1)}' : '';
+      return "$capitalizedFirstName $capitalizedLastName".trim();
+    }
+    return "";
+  }
 
 
   Future<void> checkAuthStatus() async {
@@ -61,14 +76,11 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-
   Future<void> loadRememberMe() async {
     final prefs = await _getPrefs();
     rememberMe = prefs.getBool("remember_me") ?? false;
     emit(RememberMe(isSelected: rememberMe));
   }
-
-
 
   Future<void> toggleRememberMe(bool value) async {
     final prefs = await _getPrefs();
@@ -77,7 +89,8 @@ class AuthCubit extends Cubit<AuthState> {
     emit(RememberMe(isSelected: value));
   }
 
-  Future<SharedPreferences> _getPrefs() async => _prefs ??= await SharedPreferences.getInstance();
+  Future<SharedPreferences> _getPrefs() async =>
+      _prefs ??= await SharedPreferences.getInstance();
 
   Future<void> _cacheUser(UserModel user) async {
     final prefs = await _getPrefs();
@@ -86,8 +99,6 @@ class AuthCubit extends Cubit<AuthState> {
     await prefs.setString('email', user.email);
   }
 
-
-
   Future<void> signInWithGoogle() async {
     emit(AuthLoading(action: AuthAction.google));
     try {
@@ -95,7 +106,8 @@ class AuthCubit extends Cubit<AuthState> {
 
       // Mobile/Desktop: google_sign_in v7
       await _googleSignIn.initialize(
-        clientId: "1015696421423-th7o6o7iekmqanad9c9oood4jktnsp82.apps.googleusercontent.com",
+        clientId:
+            "1015696421423-th7o6o7iekmqanad9c9oood4jktnsp82.apps.googleusercontent.com",
       );
 
       final account = await _googleSignIn.authenticate();
@@ -121,7 +133,6 @@ class AuthCubit extends Cubit<AuthState> {
           lastName: parts.length > 1 ? parts.sublist(1).join(' ') : '',
         );
         await _userRepository.updateUser(user);
-
       }
       await _cacheUser(user);
       emit(AuthSuccess(user: user));
@@ -130,7 +141,57 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
+  Future<void> signInWithFacebook() async {
+    emit(AuthLoading(action: AuthAction.facebook));
+    try {
+      // Trigger the sign-in flow
+      final LoginResult loginResult = await _facebookAuth.login();
 
+      if (loginResult.status == LoginStatus.success) {
+        final facebookAccessToken = loginResult.accessToken;
+        if (facebookAccessToken == null) {
+          throw Exception('Facebook login failed: Access token was null.');
+        }
+
+        final OAuthCredential facebookAuthCredential =
+            FacebookAuthProvider.credential(facebookAccessToken.tokenString);
+
+        // Once signed in, get the UserCredential
+        final userCredential = await _auth.signInWithCredential(
+          facebookAuthCredential,
+        );
+        final firebaseUser = userCredential.user!;
+        UserModel user;
+
+        try {
+          // Try to get the user from the repository
+          user = await _userRepository.getUser(firebaseUser.uid);
+        } catch (_) {
+          // If the user doesn't exist, create a new one
+          final userData = await _facebookAuth.getUserData();
+          final nameParts = (userData['name'] as String? ?? '').split(' ');
+
+          user = UserModel(
+            id: firebaseUser.uid,
+            email: userData['email'] as String? ?? firebaseUser.email ?? '',
+            firstName: nameParts.isNotEmpty ? nameParts.first : '',
+            lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+          );
+          await _userRepository.updateUser(user);
+        }
+         await _cacheUser(user);
+         emit(AuthSuccess(user: user));
+      } else {
+        // Handle other login statuses like cancelled or failed
+        throw Exception('Facebook login failed: ${loginResult.message}');
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error during Facebook sign-in: $e');
+      }
+      emit(AuthError(FailureHandler.mapException(e)));
+    }
+  }
 
   Future<void> sendPasswordResetEmail(String email) async {
     emit(ForgotPasswordLoading());
@@ -144,33 +205,27 @@ class AuthCubit extends Cubit<AuthState> {
 
       emit(ForgotPasswordSuccess());
     } catch (e) {
-      emit(ForgotPasswordError((
-      FailureHandler.mapException(e)
-      )));
+      emit(ForgotPasswordError((FailureHandler.mapException(e))));
     }
   }
-
-
 
   Future<void> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
-    emit(AuthLoading(
-      action: AuthAction.email
-    ));
+    emit(AuthLoading(action: AuthAction.email));
     try {
-      final cred = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      final cred = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       final uid = cred.user!.uid;
-
 
       final user = await _userRepository.getUser(uid);
       await _cacheUser(user);
       emit(AuthSuccess(user: user));
     } catch (e) {
-      emit(AuthError(
-      FailureHandler.mapException(e)
-      ));
+      emit(AuthError(FailureHandler.mapException(e)));
     }
   }
 
@@ -180,9 +235,7 @@ class AuthCubit extends Cubit<AuthState> {
     required String firstName,
     required String lastName,
   }) async {
-    emit(AuthLoading(
-      action: AuthAction.signup
-    ));
+    emit(AuthLoading(action: AuthAction.signup));
     try {
       final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -199,9 +252,7 @@ class AuthCubit extends Cubit<AuthState> {
       await _cacheUser(user);
       emit(AuthSuccess(user: user));
     } catch (e) {
-      emit(AuthError(
-      FailureHandler.mapException(e)
-      ));
+      emit(AuthError(FailureHandler.mapException(e)));
     }
   }
 
@@ -213,17 +264,13 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> signOut() async {
-    emit(AuthLoading(
-      action: AuthAction.logout
-    ));
+    emit(AuthLoading(action: AuthAction.logout));
     try {
       await _auth.signOut();
       await _clearUserCache();
       emit(AuthLogout());
     } catch (e) {
-      emit(AuthError(
-      FailureHandler.mapException(e)
-      ));
+      emit(AuthError(FailureHandler.mapException(e)));
     }
   }
 }

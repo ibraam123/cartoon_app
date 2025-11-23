@@ -28,7 +28,7 @@ final class AuthError extends AuthState {
 final class AuthLogout extends AuthState {}
 
 
-enum AuthAction { email, google, signup, logout, forgotPassword }
+enum AuthAction { email, google, signup, logout, forgotPassword , facebook }
 
 
 

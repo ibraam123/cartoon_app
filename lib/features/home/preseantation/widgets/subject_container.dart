@@ -72,7 +72,7 @@ class SubjectContainer extends StatelessWidget {
           ),
           SizedBox(height: 10.h),
           LinearProgressIndicator(
-            minHeight: 6,
+            minHeight: 8.h,
             backgroundColor: Colors.grey[300],
             valueColor: AlwaysStoppedAnimation(Color(0xFF56B9E6)),
             value: 0.5,

@@ -17,6 +17,9 @@ class Assets {
   static const String imagesF5 = 'assets/images/f5.png';
   static const String imagesF6 = 'assets/images/f6.png';
   static const String imagesF7 = 'assets/images/f7.png';
+  static const String imagesFasebook = 'assets/images/fasebook.svg';
+  static const String imagesGoogleDarkSignInIcon = 'assets/images/google_dark_sign_in_icon.svg';
+  static const String imagesGoogleLightSigninIcon = 'assets/images/google_light_signin_icon.svg';
   static const String imagesGoogleSvg = 'assets/images/google-svg.svg';
   static const String imagesHandshakeSvgrepoCom = 'assets/images/handshake-svgrepo-com.svg';
   static const String imagesHome = 'assets/images/home.png';

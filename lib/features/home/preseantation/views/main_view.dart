@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_bottom_navbar.dart';
+import '../../../profile/presentation/views/profile_view.dart';
 import '../../../rewards/presentation/views/rewards_view.dart';
 import 'home_view.dart';
 
@@ -19,7 +20,7 @@ class _MainViewState extends State<MainView> {
     HomeView(),
     RewardsView(),
     FavoriteView(),
-    CartView(),
+    ProfileView(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,13 +32,11 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: _pages[_currentIndex],
-        bottomNavigationBar: CustomBottomNavBar(
-          currentIndex: _currentIndex,
-          onItemTapped: _onItemTapped,
-        ),
+    return Scaffold(
+      body: SafeArea(child: _pages[_currentIndex]),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: _currentIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }
@@ -53,14 +52,3 @@ class FavoriteView extends StatelessWidget {
     );
   }
 }
-class CartView extends StatelessWidget {
-  const CartView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Search View'),
-    );
-  }
-}
-

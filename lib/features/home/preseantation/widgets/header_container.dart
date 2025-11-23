@@ -56,19 +56,24 @@ class HeaderContainer extends StatelessWidget {
                 ],
               ),
               Spacer(),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.blue.withValues(alpha: 0.07),
-                  borderRadius: BorderRadius.circular(32.r),
-                ),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.notifications_none_outlined,
-                    color: AppColors.primary,
-                    size: 30.r,
+              Stack(
+                children: [
+                  Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue.withValues(alpha: 0.07),
+                    borderRadius: BorderRadius.circular(32.r),
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.notifications_none_outlined,
+                      color: AppColors.primary,
+                      size: 30.r,
+                    ),
                   ),
                 ),
+                  RedDotNotify()
+                ]
               )
             ],
           ),
@@ -79,6 +84,38 @@ class HeaderContainer extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class RedDotNotify extends StatelessWidget {
+  const RedDotNotify({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+        top: 0,
+        right: 0,
+        child: Container(
+          width: 16.r,
+          height: 16.r,
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          child: Center(
+            child: Text(
+              "2",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 8.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
+        )
     );
   }
 }
