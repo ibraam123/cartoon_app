@@ -6,17 +6,18 @@ class WeeklyGoalsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.cardColor,
         borderRadius: BorderRadius.all(
           Radius.circular(16.r),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
+            color: theme.shadowColor.withValues(alpha: 0.1),
             blurRadius: 8,
             offset: Offset(0, 3),
           )
@@ -33,14 +34,14 @@ class WeeklyGoalsContainer extends StatelessWidget {
                     "Complete 5 quizzes",
                     style: TextStyle(
                       fontSize: 16.sp,
-                      color: Colors.black,
+                      color: theme.textTheme.bodyLarge?.color,
                     ),
                   ),
                   Text(
                       "3/5",
                       style: TextStyle(
                         fontSize: 12.sp,
-                        color: Colors.grey,
+                        color: theme.hintColor,
                       )
                   ),
                 ],
@@ -48,8 +49,8 @@ class WeeklyGoalsContainer extends StatelessWidget {
               SizedBox(height: 10.h),
               LinearProgressIndicator(
                 minHeight: 8,
-                backgroundColor: Colors.grey,
-                valueColor: AlwaysStoppedAnimation(Color(0xFF56B9E6)),
+                backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                valueColor: AlwaysStoppedAnimation(theme.colorScheme.primary),
                 value: 0.6,
                 borderRadius: BorderRadius.circular(12.r) ,
               )
@@ -65,14 +66,14 @@ class WeeklyGoalsContainer extends StatelessWidget {
                     "Complete 5 quizzes",
                     style: TextStyle(
                       fontSize: 16.sp,
-                      color: Colors.black,
+                      color: theme.textTheme.bodyLarge?.color,
                     ),
                   ),
                   Text(
                       "3/5",
                       style: TextStyle(
                         fontSize: 12.sp,
-                        color: Colors.grey,
+                        color: theme.hintColor,
                       )
                   ),
                 ],
@@ -80,8 +81,8 @@ class WeeklyGoalsContainer extends StatelessWidget {
               SizedBox(height: 10.h),
               LinearProgressIndicator(
                 minHeight: 8,
-                backgroundColor: Colors.grey,
-                valueColor: AlwaysStoppedAnimation(Color(0xFF56B9E6)),
+                backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                valueColor: AlwaysStoppedAnimation(theme.colorScheme.primary),
                 value: 0.6,
                 borderRadius: BorderRadius.circular(12.r) ,
               )
@@ -97,14 +98,14 @@ class WeeklyGoalsContainer extends StatelessWidget {
                     "Complete 5 quizzes",
                     style: TextStyle(
                       fontSize: 16.sp,
-                      color: Colors.black,
+                      color: theme.textTheme.bodyLarge?.color,
                     ),
                   ),
                   Text(
                       "3/5",
                       style: TextStyle(
                         fontSize: 12.sp,
-                        color: Colors.grey,
+                        color: theme.hintColor,
                       )
                   ),
                 ],
@@ -112,8 +113,8 @@ class WeeklyGoalsContainer extends StatelessWidget {
               SizedBox(height: 10.h),
               LinearProgressIndicator(
                 minHeight: 8,
-                backgroundColor: Colors.grey,
-                valueColor: AlwaysStoppedAnimation(Color(0xFF56B9E6)),
+                backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                valueColor: AlwaysStoppedAnimation(theme.colorScheme.primary),
                 value: 0.6,
                 borderRadius: BorderRadius.circular(12.r) ,
               )

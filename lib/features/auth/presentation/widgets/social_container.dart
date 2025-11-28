@@ -17,20 +17,20 @@ class SocialConatiner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.grey.shade300, width: 1.5),
           boxShadow: [
             BoxShadow(
-              color: Colors.black12,
+              color: theme.colorScheme.shadow.withValues(alpha: 0.1),
               blurRadius: 8,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             )
           ],
         ),
@@ -45,11 +45,7 @@ class SocialConatiner extends StatelessWidget {
             const SizedBox(width: 12),
             Text(
               textName,
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
+              style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
             ),
           ],
         ),

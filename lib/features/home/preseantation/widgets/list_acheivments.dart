@@ -7,6 +7,8 @@ class ListAchievements extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return SizedBox(
       height: 80.h,
       child: ListView.separated(
@@ -21,11 +23,11 @@ class ListAchievements extends StatelessWidget {
           return Container(
             width: 80.w,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: theme.cardColor,
               borderRadius: BorderRadius.circular(18.r),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
+                  color: theme.shadowColor.withValues(alpha: 0.05),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),

@@ -1,3 +1,5 @@
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,7 +30,7 @@ class DailyGoalContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Daily Goal",
+              HomeKeys.goalTitle.tr(),
               style: TextStyle(
                 fontSize: 20.sp,
                 color: Colors.white,
@@ -36,7 +38,7 @@ class DailyGoalContainer extends StatelessWidget {
             ),
             SizedBox(height: 4.h),
             Text(
-                "You've completed 3 out of 5 lessons today!",
+              HomeKeys.goalProgress.tr(),
                 style: TextStyle(
                   fontSize: 12.sp,
                   color: Colors.white,
@@ -44,7 +46,7 @@ class DailyGoalContainer extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             Text(
-                "🎯 +240 XP earned today",
+                HomeKeys.goalXpEarned.tr(),
                 style: TextStyle(
                   fontSize: 12.sp,
                   color: Colors.white,

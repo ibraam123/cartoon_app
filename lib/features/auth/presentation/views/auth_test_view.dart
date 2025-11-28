@@ -107,6 +107,7 @@ class _AuthTestViewState extends State<AuthTestView> {
   }
 
   Widget buildUi(){
+    final theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -120,19 +121,19 @@ class _AuthTestViewState extends State<AuthTestView> {
                   style: TextStyle(
                     fontSize: 48.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: theme.textTheme.bodyLarge?.color,
                   ),
                 ),
               ),
               SizedBox(height: 8.h),
               Text(
-                'Welcome to EDUTOON',
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                AuthKeys.welcome.tr(),
+                style: theme.textTheme.titleLarge?.copyWith(fontSize: 20.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 6.h),
               Text(
-                'Learn, Grow, Succeed',
-                style: TextStyle(fontSize: 16.sp, color: Colors.black54),
+                AuthKeys.tagline.tr(),
+                style: theme.textTheme.titleMedium?.copyWith(fontSize: 16.sp, color: theme.textTheme.titleMedium?.color?.withValues(alpha: 0.7)),
               ),
               SizedBox(height: 24.h),
               // Card container with rounded corners (Sign In / Sign Up tabbed)
@@ -144,11 +145,11 @@ class _AuthTestViewState extends State<AuthTestView> {
                   vertical: 18.h,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: theme.cardColor,
                   borderRadius: BorderRadius.circular(18.r),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black12,
+                      color: theme.shadowColor.withValues(alpha: 0.08),
                       blurRadius: 18.r,
                       offset: Offset(0, 8.h),
                     ),
@@ -162,7 +163,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                       Row(
                         children: [
                           SegmentOption(
-                            label: 'Sign In',
+                            label: AuthKeys.tabSignIn.tr(),
                             index: 0,
                             selectedIndex: _tabIndex,
                             onTap: () {
@@ -181,7 +182,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                           ),
                           SizedBox(width: 12.w),
                           SegmentOption(
-                            label: 'Sign Up',
+                            label: AuthKeys.tabSignUp.tr(),
                             index: 1,
                             selectedIndex: _tabIndex,
                             onTap: () {
@@ -208,7 +209,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                         Column(
                           children: [
                             CustomTextFormField(
-                              hintText: AuthKeys.email.tr(),
+                              hintText: AuthKeys.fieldEmail.tr(),
                               controller: _emailController,
                               prefixIcon: Icons.email_outlined,
                               validator: (value) {
@@ -217,13 +218,13 @@ class _AuthTestViewState extends State<AuthTestView> {
                                     EmailValidator.validate(value)) {
                                   return null;
                                 } else {
-                                  return AuthKeys.pleaseEnterValidEmail.tr();
+                                  return AuthKeys.validationEmail.tr();
                                 }
                               },
                             ),
                             SizedBox(height: 12.h),
                             CustomTextFormField(
-                              hintText: AuthKeys.password.tr(),
+                              hintText: AuthKeys.fieldPassword.tr(),
                               controller: _passwordController,
                               obscureText: isObscure,
                               prefixIcon: Icons.lock_outline,
@@ -235,14 +236,14 @@ class _AuthTestViewState extends State<AuthTestView> {
                                 },
                                 icon: Icon(
                                   isObscure ? Icons.visibility_off : Icons.visibility,
-                                  color: AppColors.greyDark,
+                                  color: theme.iconTheme.color?.withValues(alpha: 0.5),
                                 ),
                               ),
                               validator: (value) {
                                 if (value != null && value.length >= 6) {
                                   return null;
                                 } else {
-                                  return AuthKeys.passwordMustBeAtLeast6Characters.tr();
+                                  return AuthKeys.validationPassword.tr();
                                 }
                               },
                             ),
@@ -263,7 +264,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                child: const Text('Forgot Password?'),
+                                child: Text(AuthKeys.actionForgotPass.tr()),
                               ),
                             ),
                           ],
@@ -280,7 +281,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                                     value.isNotEmpty) {
                                   return null;
                                 } else {
-                                  return AuthKeys.enterFirstName.tr();
+                                  return AuthKeys.validationFirstName.tr();
                                 }
                               },
                             ),
@@ -294,13 +295,13 @@ class _AuthTestViewState extends State<AuthTestView> {
                                     value.isNotEmpty) {
                                   return null;
                                 } else {
-                                  return AuthKeys.enterLastName.tr();
+                                  return AuthKeys.validationLastName.tr();
                                 }
                               },
                             ),
                             SizedBox(height: 12.h),
                             CustomTextFormField(
-                              hintText: AuthKeys.email.tr(),
+                              hintText: AuthKeys.fieldEmail.tr(),
                               controller: _emailController,
                               prefixIcon: Icons.email_outlined,
                               validator: (value) {
@@ -309,14 +310,14 @@ class _AuthTestViewState extends State<AuthTestView> {
                                   return null;
                                 } else {
                                   return AuthKeys
-                                      .pleaseEnterValidEmail
+                                      .validationEmail
                                       .tr();
                                 }
                               },
                             ),
                             SizedBox(height: 12.h),
                             CustomTextFormField(
-                              hintText: AuthKeys.password.tr(),
+                              hintText: AuthKeys.fieldPassword.tr(),
                               controller: _passwordController,
                               obscureText: isObscure,
                               prefixIcon: Icons.lock_outline,
@@ -330,7 +331,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                                   isObscure
                                       ? Icons.visibility_off
                                       : Icons.visibility,
-                                  color: AppColors.greyDark,
+                                  color: theme.iconTheme.color?.withValues(alpha: 0.5),
                                 ),
                               ),
                               validator: (value) {
@@ -338,7 +339,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                                   return null;
                                 } else {
                                   return AuthKeys
-                                      .passwordMustBeAtLeast6Characters
+                                      .validationPassword
                                       .tr();
                                 }
                               },
@@ -351,7 +352,7 @@ class _AuthTestViewState extends State<AuthTestView> {
               ),
               SizedBox(height: 16.h),
               CustomButton(
-                text: _tabIndex == 0 ? 'Sign In' : 'Create Account',
+                text: _tabIndex == 0 ? AuthKeys.tabSignIn.tr() : AuthKeys.tabSignUp.tr(),
                 onTap: _submitForm,
                 width: double.infinity,
                 color: AppColors.primary,
@@ -366,14 +367,14 @@ class _AuthTestViewState extends State<AuthTestView> {
                 style: TextStyle(
                   fontSize: 48.sp,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: theme.textTheme.bodyLarge?.color,
                 ),
               ),
               SizedBox(height: 8.h),
               Text(
                 textAlign: TextAlign.center,
-                'Join thousands of students learning with fun!',
-                style: TextStyle(fontSize: 12.sp),
+                AuthKeys.joinFooter.tr(),
+                style: theme.textTheme.bodySmall?.copyWith(fontSize: 12.sp),
               ),
             ],
           ),

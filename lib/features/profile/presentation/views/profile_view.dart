@@ -135,9 +135,4 @@ class ProfileViewBody extends StatelessWidget {
 
 
 
-// 4. Refactored SettingList to manually build rows
-// We do this to inject specific Logic (ThemeCubit) into specific rows
-
-
-
 

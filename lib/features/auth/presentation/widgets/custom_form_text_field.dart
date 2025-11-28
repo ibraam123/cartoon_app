@@ -1,4 +1,3 @@
-import 'package:cartoon_app/core/config/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -37,7 +36,7 @@ class CustomTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         filled: true,
-        fillColor: theme.colorScheme.surface,
+        fillColor: isDarkMode ? Color(0xff364052) : Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
           borderSide: const BorderSide(
@@ -64,7 +63,7 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffixIconButton,
         prefixIcon: prefixIcon == null ? null : Icon(
           prefixIcon,
-          color: AppColors.greyDark,
+          color: theme.colorScheme.onSurface,
         ),
       ),
     );

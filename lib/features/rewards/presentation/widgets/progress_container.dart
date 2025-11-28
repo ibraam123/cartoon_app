@@ -17,67 +17,62 @@ class ProgressContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        minHeight: 150.h,
-        maxHeight: 150.h
+    final theme = Theme.of(context);
+    return Container(
+      padding: EdgeInsets.all(12.w),
+      decoration: BoxDecoration(
+        color: theme.cardColor,
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, 3),
+          ),
+        ],
       ),
-      child: Container(
-        padding: EdgeInsets.all(12.w),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16.r),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 8,
-              offset: Offset(0, 3),
+
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, // 👈 makes all same height
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: colorIcon.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(32.r),
             ),
-          ],
-        ),
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, // 👈 makes all same height
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: colorIcon.withValues(alpha: 0.12),
-                borderRadius: BorderRadius.circular(32.r),
-              ),
-              padding: EdgeInsets.all(8.r),
-              child: Icon(
-                icon,
-                color: colorIcon,
-                size: 30.r,
-              ),
+            padding: EdgeInsets.all(8.r),
+            child: Icon(
+              icon,
+              color: colorIcon,
+              size: 30.r,
             ),
+          ),
 
-            SizedBox(height: 8.h),
+          SizedBox(height: 8.h),
 
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+          Text(
+            title,
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+              color: theme.textTheme.bodyLarge?.color,
             ),
+          ),
 
-            SizedBox(height: 4.h),
+          SizedBox(height: 4.h),
 
-            Text(
-              subTitle,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: Colors.black54,
-              ),
+          Text(
+            subTitle,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: theme.textTheme.bodySmall?.copyWith(
+              fontSize: 12.sp,
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

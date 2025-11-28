@@ -18,16 +18,17 @@ class SettingContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.all(20.w),
       width: double.infinity,
-      color: Colors.white, // Background handled here
+      color: theme.colorScheme.surface, // Background handled here
       child: Row(
         children: [
           Container(
             padding: EdgeInsets.all(8.r),
             decoration: BoxDecoration(
-              color: Colors.blue.withValues(alpha: 0.07),
+              color: AppColors.primary.withValues(alpha: 0.07),
               borderRadius: BorderRadius.circular(32.r),
             ),
             child: Icon(
@@ -45,7 +46,7 @@ class SettingContainer extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
               Text(
@@ -53,7 +54,7 @@ class SettingContainer extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w400,
-                  color: Colors.black87,
+                  color: theme.colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -61,10 +62,10 @@ class SettingContainer extends StatelessWidget {
           Spacer(),
           settingEntity.haveForwardIcon == true
               ? Icon(
-            Icons.arrow_forward_ios_outlined,
-            color: Colors.black87,
-            size: 20.r,
-          )
+                  Icons.arrow_forward_ios_outlined,
+                  color: theme.colorScheme.onSurfaceVariant,
+                  size: 20.r,
+                )
               : ProfileSwitch(value: switchValue, onChanged: onSwitchChanged),
         ],
       ),

@@ -28,14 +28,16 @@ class RewardsView extends StatelessWidget {
         SizedBox(height: 10.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Row(
-            children: [
-              Expanded(child: ProgressContainer(icon: Icons.outlet_outlined, colorIcon: Colors.yellowAccent, title: "2,450", subTitle: "Total XP")),
-              SizedBox(width: 10.w),
-              Expanded(child: ProgressContainer(icon: Icons.outlet_outlined, colorIcon: Colors.greenAccent, title: "12", subTitle: "Current Streak")),
-              SizedBox(width: 10.w),
-              Expanded(child: ProgressContainer(icon: Icons.outlet_outlined, colorIcon: Colors.redAccent , title: "28", subTitle: "Lessons Completed" )),
-            ],
+          child: IntrinsicHeight(
+            child: Row(
+              children: [
+                Expanded(child: ProgressContainer(icon: Icons.outlet_outlined, colorIcon: Colors.yellowAccent, title: "2,450", subTitle: "Total XP")),
+                SizedBox(width: 10.w),
+                Expanded(child: ProgressContainer(icon: Icons.outlet_outlined, colorIcon: Colors.greenAccent, title: "12", subTitle: "Current Streak")),
+                SizedBox(width: 10.w),
+                Expanded(child: ProgressContainer(icon: Icons.outlet_outlined, colorIcon: Colors.redAccent , title: "28", subTitle: "Lessons Completed" )),
+              ],
+            ),
           ),
         ),
         SizedBox(height: 20.h),

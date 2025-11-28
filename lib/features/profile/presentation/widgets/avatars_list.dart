@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/config/app_colors.dart';
 import '../../../home/preseantation/logic/profile_cubit.dart';
 
 class AvatarsList extends StatelessWidget {
@@ -25,6 +24,7 @@ class AvatarsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     // Read the current selected icon to highlight it
     final selectedIcon = context.watch<ProfileCubit>().selectedIcon;
 
@@ -51,13 +51,13 @@ class AvatarsList extends StatelessWidget {
             padding: EdgeInsets.all(8.r),
             decoration: BoxDecoration(
               // Change color if selected to give feedback
-              color: isSelected ? AppColors.primary : Colors.white,
-              border: Border.all(color: AppColors.primary, width: 1.w),
+              color: isSelected ? theme.primaryColor : theme.canvasColor,
+              border: Border.all(color: theme.primaryColor, width: 1.w),
               borderRadius: BorderRadius.circular(16.r),
               boxShadow: [
                 if (isSelected)
                   BoxShadow(
-                    color: AppColors.primary.withValues(alpha: 0.3),
+                    color: theme.primaryColor.withValues(alpha: 0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -69,7 +69,9 @@ class AvatarsList extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 30.sp,
                   // Emojis generally ignore color, but if this was an IconData:
-                  color: isSelected ? Colors.white : AppColors.primary,
+                  color: isSelected
+                      ? theme.colorScheme.onPrimary
+                      : theme.primaryColor,
                 ),
               ),
             ),

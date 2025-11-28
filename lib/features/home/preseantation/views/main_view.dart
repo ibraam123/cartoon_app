@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_bottom_navbar.dart';
+import '../../../dashboard/presentation/views/dashboard_parent_view.dart';
 import '../../../profile/presentation/views/profile_view.dart';
 import '../../../rewards/presentation/views/rewards_view.dart';
 import 'home_view.dart';
@@ -19,7 +20,7 @@ class _MainViewState extends State<MainView> {
   final List<Widget> _pages = [
     HomeView(),
     RewardsView(),
-    FavoriteView(),
+    DashboardParentView(),
     ProfileView(),
   ];
 
@@ -38,17 +39,6 @@ class _MainViewState extends State<MainView> {
         currentIndex: _currentIndex,
         onItemTapped: _onItemTapped,
       ),
-    );
-  }
-}
-
-class FavoriteView extends StatelessWidget {
-  const FavoriteView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Search View'),
     );
   }
 }
