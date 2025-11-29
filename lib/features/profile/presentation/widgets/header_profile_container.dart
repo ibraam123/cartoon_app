@@ -18,7 +18,7 @@ class HeaderProfileContainer extends StatelessWidget {
   });
 
   final String header;
-  final String title;
+  final String title; 
   final String subTitle;
   final String iconText;
 
