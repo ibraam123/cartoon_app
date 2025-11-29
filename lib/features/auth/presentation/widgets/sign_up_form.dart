@@ -51,7 +51,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
               CustomTextFormField(
                 controller: email,
-                hintText: AuthKeys.email.tr(),
+                hintText: AuthKeys.fieldEmail.tr(),
                 prefixIcon: Icons.email_outlined,
                 validator: (v) =>
                 EmailValidator.validate(v ?? "") ? null : "Invalid email",
@@ -60,7 +60,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
               CustomTextFormField(
                 controller: password,
-                hintText: AuthKeys.password.tr(),
+                hintText: AuthKeys.fieldPassword.tr(),
                 obscureText: obscure,
                 prefixIcon: Icons.lock_outline,
                 suffixIconButton: IconButton(

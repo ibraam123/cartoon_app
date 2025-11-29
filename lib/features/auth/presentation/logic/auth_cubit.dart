@@ -40,6 +40,65 @@ class AuthCubit extends Cubit<AuthState> {
     return "";
   }
 
+  // Inside class AuthCubit extends Cubit<AuthState> { ...
+
+  /// Updates the user's first and last names and triggers state updates.
+  Future<void> updateProfile({required String fullName}) async {
+    final currentState = state;
+
+    // 1. Pre-check: Must be authenticated to update profile
+    if (currentState is! AuthSuccess) {
+      emit(AuthError('User not authenticated for update.'));
+      return;
+    }
+
+    emit(AuthLoading()); // Start loading state
+
+    try {
+      final oldUser = currentState.user;
+      if (oldUser == null) {
+        emit(AuthError('User data is missing.'));
+        return;
+      }
+
+      // Split the new full name into first and last names
+      final nameParts = fullName.trim().split(' ');
+      final newFirstName = nameParts.isNotEmpty ? nameParts.first : '';
+      final newLastName = nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '';
+
+      // If the effective name hasn't changed, stop here.
+      if (newFirstName == oldUser.firstName && newLastName == oldUser.lastName) {
+        emit(AuthSuccess(user: oldUser));
+        return;
+      }
+
+      // Create the updated UserModel
+      final updatedUser = oldUser.copyWith(
+        firstName: newFirstName,
+        lastName: newLastName,
+      );
+
+      // 2. Persist the updated user data in the repository (e.g., Firestore)
+      await _userRepository.updateUser(updatedUser);
+
+      // 3. Update the local cache (SharedPreferences)
+      await _cacheUser(updatedUser);
+
+      // 4. Emit the success state with the new user model.
+      // This will trigger the BlocListener in the widget to close the modal.
+      emit(AuthSuccess(user: updatedUser));
+
+      // NOTE ON STATE: For a cleaner UX, you might want a dedicated state
+      // like `AuthUpdateProfileSuccess`. If you add that to `auth_state.dart`,
+      // emit that instead: `emit(AuthUpdateProfileSuccess(user: updatedUser));`
+
+    } catch (e) {
+      // Handle error and stop loading
+      emit(AuthError(FailureHandler.mapException(e)));
+    }
+  }
+
+// ... (rest of the class)
 
   Future<void> checkAuthStatus() async {
     emit(AuthLoading());

@@ -1,7 +1,8 @@
+import 'package:cartoon_app/core/config/app_colors.dart';
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/config/app_colors.dart';
 
 class HeadersSection extends StatelessWidget {
   const HeadersSection({super.key , required this.text, this.haveSeeAll});
@@ -10,27 +11,28 @@ class HeadersSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           text,
-          style: TextStyle(
-            fontSize: 16.sp,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
+          style: theme.textTheme.titleMedium?.copyWith(
+            fontSize: 16.sp
+          )
         ),
-        haveSeeAll! ? TextButton(
-          onPressed: () {},
-          child: Text(
-            "See All",
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: AppColors.primary,
+        if(haveSeeAll ?? false)
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              HomeKeys.continueSeeAll.tr(),
+              style: theme.textTheme.bodySmall?.copyWith(
+                fontSize: 12.sp,
+                color: AppColors.primary,
+                fontWeight: FontWeight.w500
+              ),
             ),
-          ),
-        ) : Container()
+          )
       ],
     );
   }

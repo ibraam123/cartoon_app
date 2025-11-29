@@ -16,11 +16,12 @@ class HeaderRewardsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.all(20.w),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.cardColor,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(30.r),
           bottomRight: Radius.circular(30.r),
@@ -28,7 +29,7 @@ class HeaderRewardsContainer extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 10,
+            blurRadius: 10.r,
             spreadRadius: 1,
             offset: Offset(0, 3),
           ),
@@ -49,7 +50,7 @@ class HeaderRewardsContainer extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 19.sp,
                     fontWeight: FontWeight.w500,
-                    color: Colors.grey[700],
+                    color: theme.textTheme.titleMedium?.color?.withValues(alpha: 0.7),
                   ),
                 ),
 
@@ -60,7 +61,7 @@ class HeaderRewardsContainer extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                    color: theme.textTheme.bodyLarge?.color,
                   ),
                 ),
 
@@ -71,7 +72,7 @@ class HeaderRewardsContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.r),
                   child: LinearProgressIndicator(
                     minHeight: 7.h,
-                    backgroundColor: Colors.grey[200],
+                    backgroundColor: theme.colorScheme.surfaceContainerHighest,
                     value: 0.50,
                     valueColor:
                     AlwaysStoppedAnimation(Color(0xFF56B9E6)),
@@ -90,7 +91,7 @@ class HeaderRewardsContainer extends StatelessWidget {
             lineWidth: 8.r,
             percent: 0.75,
             progressColor: AppColors.primary,
-            backgroundColor: Colors.grey[200]!,
+            backgroundColor: theme.colorScheme.surfaceContainerHighest,
             circularStrokeCap: CircularStrokeCap.round,
             center: Text(
               "75%",

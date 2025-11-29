@@ -1,7 +1,8 @@
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/home/domain/entities/nav_item.dart';
-import '../config/app_colors.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   final int currentIndex;
@@ -18,21 +19,25 @@ class CustomBottomNavBar extends StatefulWidget {
 }
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  static const items = [
-    NavItem(Icons.home_outlined, 'Home'),
-    NavItem(Icons.card_giftcard_outlined, 'Rewards'),
-    NavItem(Icons.analytics_outlined, 'Reports'),
-    NavItem(Icons.person_outline, 'Profile'),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final items = [
+      NavItem(Icons.home_outlined, NavKeys.home.tr()),
+      NavItem(Icons.card_giftcard_outlined, NavKeys.rewards.tr()),
+      NavItem(Icons.analytics_outlined, NavKeys.reports.tr()),
+      NavItem(Icons.person_outline, NavKeys.profile.tr()),
+    ];
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.cardColor,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: theme.shadowColor.withValues(alpha: 0.05),
             blurRadius: 20,
             offset: const Offset(0, 5),
           ),
@@ -47,7 +52,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           return InkWell(
             borderRadius: BorderRadius.circular(12),
             onTap: () => widget.onItemTapped(index),
-            splashColor: AppColors.primary.withValues(alpha: 0.1),
+            splashColor: theme.primaryColor.withValues(alpha: 0.1),
             child: AnimatedContainer(
               margin: EdgeInsets.symmetric(vertical: 8.w),
               duration: const Duration(milliseconds: 300),
@@ -56,7 +61,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                   horizontal: isSelected ? 16.w : 8.w, vertical: 8.h),
               decoration: BoxDecoration(
                 color: isSelected
-                    ? AppColors.primary.withValues(alpha: 0.1)
+                    ? theme.primaryColor.withValues(alpha: 0.1)
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -67,7 +72,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                   AnimatedTheme(
                     data: ThemeData(
                       iconTheme: IconThemeData(
-                        color: isSelected ? AppColors.primary : Colors.grey,
+                        color: isSelected
+                            ? theme.primaryColor
+                            : theme.unselectedWidgetColor,
                         size: 24.r,
                       ),
                     ),
@@ -80,7 +87,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     style: TextStyle(
                       fontSize: 12.sp ,
                       fontWeight: FontWeight.bold,
-                      color: isSelected ? AppColors.primary : Colors.grey,
+                      color: isSelected
+                          ? theme.primaryColor
+                          : theme.unselectedWidgetColor,
                     ),
                     child: Text(item.label),
                   ),

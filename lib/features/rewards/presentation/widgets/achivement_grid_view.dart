@@ -17,15 +17,16 @@ class AchievementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.all(14.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(18.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
-            blurRadius: 8,
+            color: theme.brightness == Brightness.light ? Colors.black12 : Colors.black54,
+            blurRadius: 8.r,
             offset: Offset(0, 3),
           ),
         ],
@@ -53,7 +54,7 @@ class AchievementCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 12.sp,
+                fontSize: 13.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -63,7 +64,7 @@ class AchievementCard extends StatelessWidget {
 
           Icon(
             icon,
-            color: Colors.yellowAccent.shade700,
+            color: theme.colorScheme.secondary,
             size: 20.r,
           ),
         ],
@@ -79,7 +80,7 @@ class AchievementsGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics() ,
+      physics: const NeverScrollableScrollPhysics() ,
       itemCount: 6,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,

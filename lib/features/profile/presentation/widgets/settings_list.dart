@@ -1,4 +1,6 @@
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
 import 'package:cartoon_app/features/profile/presentation/widgets/setting_container.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/theme_cubit.dart';
@@ -16,7 +18,7 @@ class SettingList extends StatelessWidget {
         SettingContainer(
           settingEntity: SettingEntity(
             icon: Icons.language_outlined,
-            text: "English Language",
+            text: ProfileKeys.settingsLanguage.tr() ,
             subText: themeCubit.state.isEnglish ? "English" : "عربي",
             haveForwardIcon: false,
           ),
@@ -26,10 +28,10 @@ class SettingList extends StatelessWidget {
         const Divider(height: 1, color: Colors.black12),
 
         // Item 2: Notifications (Local/Dummy Logic for now)
-        const SettingContainer(
+         SettingContainer(
           settingEntity: SettingEntity(
             icon: Icons.notifications_none_outlined,
-            text: "Notifications",
+            text: ProfileKeys.settingsNotifications.tr() ,
             subText: "On",
             haveForwardIcon: false,
           ),
@@ -38,10 +40,10 @@ class SettingList extends StatelessWidget {
         const Divider(height: 1, color: Colors.black12),
 
         // Item 3: Offline Downloads (Navigation)
-        const SettingContainer(
+        SettingContainer(
           settingEntity: SettingEntity(
             icon: Icons.download_outlined,
-            text: "Offline Downloads",
+            text: ProfileKeys.settingsDownloads.tr() ,
             subText: "4 lessons",
             haveForwardIcon: true,
           ),

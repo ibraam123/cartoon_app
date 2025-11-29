@@ -89,7 +89,6 @@ class AppView extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeAnimationDuration: const Duration(milliseconds: 300),
           themeAnimationCurve: Curves.easeInOut,
-
         );
       }
     );

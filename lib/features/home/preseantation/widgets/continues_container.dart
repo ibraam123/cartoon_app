@@ -12,20 +12,21 @@ class ContinuesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.cardColor,
         borderRadius: BorderRadius.all(
           Radius.circular(16.r),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
+            color: theme.shadowColor.withValues(alpha: 0.07),
             blurRadius: 8,
-            offset: Offset(0, 3),
-          )
+            offset: const Offset(0, 3),
+          ),
         ],
       ),
       child: Row(
@@ -41,7 +42,7 @@ class ContinuesContainer extends StatelessWidget {
               child: IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  Icons.notifications_none_outlined,
+                  iconSubject,
                   color: AppColors.white,
                   size: 30.r,
                 ),
@@ -55,20 +56,21 @@ class ContinuesContainer extends StatelessWidget {
                 Text(
                   text,
                   style: TextStyle(
-                    fontSize: 16.sp,
-                    color: Colors.black,
+                    fontSize: 16,
+                    color: theme.textTheme.bodyLarge!.color,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   subText,
                   style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Colors.grey,
+                    fontSize: 12,
+                    color: theme.textTheme.bodySmall!.color,
                   ),
                 )
               ]
           ),
-          Spacer(),
+          const Spacer(),
           Container(
             decoration: BoxDecoration(
               color: bkgColor.withValues(alpha: 0.07),

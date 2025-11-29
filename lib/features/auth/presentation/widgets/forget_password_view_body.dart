@@ -32,6 +32,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
 
     return SafeArea(
       child: BlocConsumer<AuthCubit, AuthState>(
@@ -48,7 +49,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
           if (state is ForgotPasswordSuccess) {
             CustomSnackBar.show(
               context,
-              message: AuthKeys.forgotPassword.tr(),
+              message: AuthKeys.actionForgotPass.tr(),
               backgroundColor: AppColors.success,
               icon: Icons.check,
             );
@@ -68,7 +69,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                     height: 150.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: AppColors.primary,
+                      color: theme.primaryColor,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(30.r),
                         bottomRight: Radius.circular(30.r),
@@ -82,18 +83,14 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                           onTap: () => GoRouter.of(context).pop(),
                           child: CircleAvatar(
                             radius: 22.r,
-                            backgroundColor: Colors.white.withValues(alpha: 0.3),
-                            child: Icon(Icons.arrow_back, color: Colors.white, size: 22.sp),
+                            backgroundColor: theme.cardColor.withValues(alpha: 0.3),
+                            child: Icon(Icons.arrow_back, color: theme.cardColor, size: 22.sp),
                           ),
                         ),
                         SizedBox(width: 15.w),
                         Text(
-                          "Reset Password",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          ForgotPassKeys.title.tr(),
+                          style: theme.textTheme.headlineSmall?.copyWith(color: theme.cardColor, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -108,7 +105,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                       width: double.infinity,
                       padding: EdgeInsets.all(22.w),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: theme.cardColor,
                         borderRadius: BorderRadius.circular(25.r),
                         boxShadow: [
                           BoxShadow(
@@ -126,13 +123,13 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                           Container(
                             padding: EdgeInsets.all(18.w),
                             decoration: BoxDecoration(
-                              color: AppColors.primary,
+                              color: theme.primaryColor,
                               borderRadius: BorderRadius.circular(20.r),
                             ),
                             child: Icon(
                               Icons.lock_outline,
                               size: 40.sp,
-                              color: AppColors.white,
+                              color: theme.cardColor,
                             ),
                           ),
 
@@ -140,31 +137,24 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
 
                           /// Title
                           Text(
-                            "Forgot Your Password?",
+                            ForgotPassKeys.step1Heading.tr(),
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
                           ),
 
                           SizedBox(height: 10.h),
 
                           /// Subtitle
                           Text(
-                            "Enter your email address and we'll send you a\nverification code to reset your password.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: Colors.grey[700],
-                            ),
+                            ForgotPassKeys.step1Desc.tr(),
+                            textAlign: TextAlign.center, style: theme.textTheme.bodyMedium?.copyWith(color: theme.hintColor),
                           ),
 
                           SizedBox(height: 25.h),
 
                           /// Email Input Field
                           CustomTextFormField(
-                            hintText: AuthKeys.email.tr(),
+                            hintText: AuthKeys.fieldEmail.tr(),
                             controller: _emailController,
                             prefixIcon: Icons.email_outlined,
                             validator: (value) {
@@ -173,7 +163,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                                   EmailValidator.validate(value)) {
                                 return null;
                               }
-                              return AuthKeys.enterYourEmail.tr();
+                              return AuthKeys.validationEmail.tr();
                             },
                           ),
 
@@ -182,7 +172,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                           /// Send Verification Code Button
                           CustomButton(
                             isLoading: isLoading,
-                            text: AuthKeys.sendResetLink.tr(),
+                            text: ForgotPassKeys.title.tr(),
                             width: double.infinity,
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
@@ -192,13 +182,13 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                               } else {
                                 CustomSnackBar.show(
                                   context,
-                                  message: AuthKeys.enterYourEmail.tr(),
+                                  message: AuthKeys.validationEmail.tr(),
                                   backgroundColor: AppColors.error,
                                   icon: Icons.error,
                                 );
                               }
                             },
-                            color: AppColors.primary,
+                            color: theme.primaryColor,
                           ),
                         ],
                       ),
@@ -212,21 +202,16 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Remember your password? ",
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Colors.grey[700],
-                        ),
+                        AuthKeys.actionForgotPass.tr(),
+                        style: theme.textTheme.bodyMedium?.copyWith(color: theme.hintColor),
                       ),
+                      SizedBox(width: 5.w),
                       GestureDetector(
                         onTap: () => GoRouter.of(context).go(AppRoutes.kAuth),
                         child: Text(
-                          "Sign In",
-                          style: TextStyle(
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.primary,
-                          ),
+                          AuthKeys.tabSignIn.tr(),
+                          style: theme.textTheme.bodyLarge
+                              ?.copyWith(fontWeight: FontWeight.w600, color: theme.primaryColor),
                         ),
                       ),
                     ],

@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 class AppTheme {
   // Light Theme
   static final ThemeData lightTheme = ThemeData(
+    dividerColor: const Color(0xFFE0E0E0),
     brightness: Brightness.light,
     primaryColor: const Color(0xff7dc6e1),
     primaryColorDark: const Color(0xFF004799),
     primaryColorLight: const Color(0xFF4D94FF),
     colorScheme: const ColorScheme.light(
-      primary: Color(0xff9560e1),
+      primary: Color(0xff7cc4df),
       surface: Color(0xE4F8F9FA) ,
       secondary: Color(0xFF00C853), // Example secondary color
       error: Color(0xFFD32F2F),
@@ -143,18 +144,19 @@ class AppTheme {
 
   // Dark Theme
   static final ThemeData darkTheme = ThemeData(
+    dividerColor: const Color(0xFF404040),
     brightness: Brightness.dark,
     primaryColor: const Color(0xff7dc6e1),
     primaryColorDark: const Color(0xFF0066CC),
     primaryColorLight: const Color(0xFF80B3FF),
     colorScheme: const ColorScheme.dark(
-      primary: Color(0xff9560e1),
+      primary: Color(0xff7cc4df),
       secondary: Color(0xFF69F0AE), // Example secondary color for dark theme
-      surface: Color(0xFF2D2D2D),
+      surface: Color(0xFF1E2939),
       error: Color(0xFFFF5252),
     ),
-    scaffoldBackgroundColor: const Color(0xFF121212),
-    cardColor: const Color(0xff1d1b1e),
+    scaffoldBackgroundColor: const Color(0xFF101828),
+    cardColor: const Color(0xff1e2939),
 
     // Text Theme
     textTheme: const TextTheme(

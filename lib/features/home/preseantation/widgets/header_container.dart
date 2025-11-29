@@ -1,3 +1,5 @@
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,13 +14,18 @@ class HeaderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+      padding: EdgeInsets.only(
+        left: 20.w,
+        right: 20.w,
+        top: 20.h,
+        bottom: 25.h,
+      ),
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.black12,
+              color: Theme.of(context).colorScheme.shadow.withValues(alpha: 0.1),
               blurRadius: 8,
               offset: Offset(0, 3),
             )
@@ -40,18 +47,12 @@ class HeaderContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: Colors.grey,
-                    ),
+                    title, // "Welcome back,"
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   Text(
                     subTitle,
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               ),
@@ -60,7 +61,7 @@ class HeaderContainer extends StatelessWidget {
                 children: [
                   Container(
                   decoration: BoxDecoration(
-                    color: Colors.blue.withValues(alpha: 0.07),
+                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.07),
                     borderRadius: BorderRadius.circular(32.r),
                   ),
                   child: IconButton(
@@ -79,7 +80,7 @@ class HeaderContainer extends StatelessWidget {
           ),
           SizedBox(height: 20.h),
           CustomTextFormField(
-            hintText: "Search Lessons, subjects...",
+            hintText: HomeKeys.search.tr(),
             prefixIcon: Icons.search,
           )
         ],

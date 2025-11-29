@@ -1,297 +1,280 @@
-
-/// `AppKeys` is a utility class that centralizes all localization keys used within the application.
-/// This helps avoid hardcoding strings and makes localization easier to maintain.
+/// Centralized keys for EDUTOON App Localization
 class AppKeys {
-  // App
-  static const String appName = 'app_name';
+  static const String appName = 'app_name'; // Reserved if needed
 }
 
-/// Authentication Keys
-abstract class AuthKeys {
-  static const String passwordMustBeAtLeast6Characters = 'auth.password_must_be_at_least_6_characters';
-  static const String sendResetLink = 'auth.send_reset_link';
-  static const String joinUs = 'auth.join_us';
-  static const String firstName = 'auth.first_name';
-  static const String lastName = 'auth.last_name';
-  static const String email = 'auth.email';
-  static const String password = 'auth.password';
-  static const String dateOfBirth = 'auth.date_of_birth';
-  static const String day = 'auth.day';
-  static const String month = 'auth.month';
-  static const String year = 'auth.year';
-  static const String gender = 'auth.gender';
-  static const String female = 'auth.female';
-  static const String male = 'auth.male';
-  static const String signUp = 'auth.sign_up';
-  static const String alreadyHaveAccount = 'auth.already_have_account';
-  static const String logIn = 'auth.log_in';
-  static const String welcomeBack = 'auth.welcome_back';
-  static const String rememberMe = 'auth.remember_me';
-  static const String forgotPassword = 'auth.forgot_password';
-  static const String dontHaveAccount = 'auth.dont_have_account';
-  static const String continueWithGoogle = 'auth.continue_with_google';
-  static const String or = 'auth.or';
-  static const String forgotPasswordQuestion = 'auth.forgot_password_question';
-  static const String passwordResetEmailSent = 'auth.password_reset_email_sent';
-  static const String pleaseEnterValidEmail = 'auth.please_enter_valid_email';
-
-
-
-  // Hints
-  static const String enterYourEmail = 'auth.enter_your_email';
-  static const String enterYourPassword = 'auth.enter_your_password';
-  static const String enterFirstName = 'auth.enter_first_name';
-  static const String enterLastName = 'auth.enter_last_name';
-  static const String enterDateOfBirth = 'auth.enter_date_of_birth';
-  static const String enterGender = 'auth.enter_gender';
-  static const String enterPassword = 'auth.enter_password';
-  static const String enterConfirmPassword = 'auth.enter_confirm_password';
-  static const String pleaseFillInAllFields = 'auth.please_fill_in_all_fields';
+/// Splash Screen Keys
+abstract class SplashKeys {
+  static const String tagline = 'splash.tagline';
 }
 
-/// Onboarding Keys
+/// Onboarding Screen Keys
 abstract class OnboardingKeys {
-  static const String whoAreYou = 'onboarding.who_are_you';
-  static const String chooseExperience = 'onboarding.choose_experience';
-  static const String livingWithDisability = 'onboarding.living_with_disability';
-  static const String regularUser = 'onboarding.regular_user';
-  static const String helpingFamily = 'onboarding.helping_family';
-  static const String loginSuccessful = 'onboarding.login_successful';
-  static const String toEveryone = 'onboarding.to_everyone';
-  static const String youAreNotAlone = 'onboarding.you_are_not_alone';
-  static const String inspirationalMessage = 'onboarding.inspirational_message';
-  static const String getStarted = 'onboarding.get_started';
-  static const String screen1Title = 'onboarding.screen1_title';
-  static const String screen1Description = 'onboarding.screen1_description';
-  static const String screen2Title = 'onboarding.screen2_title';
-  static const String screen2Description = 'onboarding.screen2_description';
-  static const String screen3Title = 'onboarding.screen3_title';
-  static const String screen3Description = 'onboarding.screen3_description';
+  static const String page1Title = 'onboarding.page1.title';
+  static const String page1Desc = 'onboarding.page1.desc';
+  static const String page2Title = 'onboarding.page2.title';
+  static const String page2Desc = 'onboarding.page2.desc';
+  static const String page3Title = 'onboarding.page3.title';
+  static const String page3Desc = 'onboarding.page3.desc';
+
+  // Buttons
+  static const String btnSkip = 'onboarding.buttons.skip';
+  static const String btnNext = 'onboarding.buttons.next';
+  static const String btnGetStarted = 'onboarding.buttons.get_started';
+  static const String btnDone = 'onboarding.buttons.done';
 }
 
-/// Navigation Keys
-abstract class NavigationKeys {
-  static const String home = 'navigation.home';
-  static const String notifications = 'navigation.notifications';
-  static const String profile = 'navigation.profile';
-  static const String signLanguage = 'navigation.sign_language';
-  static const String aboutUs = 'navigation.about_us';
-  static const String favorites = 'navigation.favorites';
-  static const String community = 'navigation.community';
-  static const String posts = 'navigation.posts';
-  static const String helpSupport = 'navigation.help_support';
+/// Authentication Screen Keys
+abstract class AuthKeys {
+  static const String welcome = 'auth.welcome';
+  static const String tagline = 'auth.tagline';
+
+  // User Type
+  static const String userTypeStudent = 'auth.user_type.student';
+  static const String userTypeParent = 'auth.user_type.parent';
+
+  // Tabs
+  static const String tabSignIn = 'auth.tabs.sign_in';
+  static const String tabSignUp = 'auth.tabs.sign_up';
+
+  // Social Auth
+  static const String google = "auth.social_signin.google";
+  static const String facebook = "auth.social_signin.facebook";
+  static const String title = "auth.social_signin.title";
+
+  // Error
+
+  // Errors
+  static const String errorWrongEmailOrPassword = 'auth.error.wrong_email_or_password';
+  static const String errorUserNotFound = 'auth.error.user_not_found';
+  static const String errorEmailAlreadyExists = 'auth.error.email_already_in_use';
+  static const String errorInvalidEmail = 'auth.error.invalid_email';
+  static const String errorWeakPassword = 'auth.error.weak_password';
+  static const String errorTooManyRequests = 'auth.error.too_many_requests';
+  static const String errorOperationNotAllowed = 'auth.error.operation_not_allowed';
+  static const String errorInvalidVerificationCode = 'auth.error.invalid_verification_code';
+  static const String errorUserDisabled = 'auth.error.user_disabled';
+  static const String errorNetworkRequestFailed = 'auth.error.network_request_failed';
+
+  // Validation
+  static const String validationFullName = 'auth.validation.full_name';
+  static const String validationFirstName = 'auth.validation.first_name';
+  static const String validationLastName = 'auth.validation.last_name';
+  static const String validationEmail = 'auth.validation.email';
+  static const String validationPhone = 'auth.validation.phone';
+  static const String validationPassword = 'auth.validation.password';
+
+  // Fields
+  static const String fieldFullName = 'auth.fields.full_name';
+  static const String firstName = 'auth.fields.first_name';
+  static const String lastName = 'auth.fields.last_name';
+  static const String fieldEmail = 'auth.fields.email';
+  static const String fieldPhone = 'auth.fields.phone';
+  static const String fieldPassword = 'auth.fields.password';
+
+  // Actions
+  static const String actionForgotPass = 'auth.actions.forgot_pass';
+  static const String actionCreateAcc = 'auth.actions.create_acc';
+  static const String actionOr = 'auth.actions.or';
+  static const String actionOrContinue = 'auth.actions.or_continue';
+  static const String joinFooter = 'auth.actions.join_footer';
+
+
 }
 
-abstract class Home {
+/// Forgot Password Keys
+abstract class ForgotPassKeys {
+  static const String title = 'forgot_pass.title';
+
+  // Step 1
+  static const String step1Heading = 'forgot_pass.step1.heading';
+  static const String step1Desc = 'forgot_pass.step1.desc';
+  static const String step1Placeholder = 'forgot_pass.step1.placeholder';
+  static const String step1Btn = 'forgot_pass.step1.btn';
+  static const String step1Sending = 'forgot_pass.step1.sending';
+
+  // Step 2
+  static const String step2Heading = 'forgot_pass.step2.heading';
+  static const String step2Desc = 'forgot_pass.step2.desc';
+  static const String step2Resend = 'forgot_pass.step2.resend';
+  static const String step2VerifyBtn = 'forgot_pass.step2.verify_btn';
+  static const String step2Verifying = 'forgot_pass.step2.verifying';
+
+  // Step 3
+  static const String step3Heading = 'forgot_pass.step3.heading';
+  static const String step3Desc = 'forgot_pass.step3.desc';
+  static const String step3Btn = 'forgot_pass.step3.btn';
+
+  // Footer
+  static const String footerRemember = 'forgot_pass.footer.remember';
+  static const String footerSignIn = 'forgot_pass.footer.sign_in';
+}
+
+/// Home Screen Keys
+abstract class HomeKeys {
   static const String welcome = 'home.welcome';
-  static const String loading = 'home.loading';
-  static const String error = 'home.error';
+  static const String search = 'home.search';
 
-  static const String accessiblePlaces = 'home.accessible_places';
-  static const String accessiblePlacesSub = 'home.accessible_places_sub';
-  static const String explorePlaces = 'home.explore_places';
+  // Daily Goal
+  static const String goalTitle = 'home.daily_goal.title';
+  static const String goalProgress = 'home.daily_goal.progress';
+  static const String goalXpEarned = 'home.daily_goal.xp_earned';
 
-  static const String signLessons = 'home.sign_lessons';
-  static const String signLessonsSub = 'home.sign_lessons_sub';
-  static const String startLearning = 'home.start_learning';
+  // Continue Learning
+  static const String continueTitle = 'home.continue_learning.title';
+  static const String continueSeeAll = 'home.continue_learning.see_all';
+  static const String continueComplete = 'home.continue_learning.complete';
 
-  static const String roleModels = 'home.role_models';
-  static const String roleModelsSub = 'home.role_models_sub';
-  static const String getInspired = 'home.get_inspired';
+  // Subjects
+  static const String subjectsTitle = 'home.subjects.title';
+  static const String subjectArabic = 'home.subjects.arabic';
+  static const String subjectEnglish = 'home.subjects.english';
+  static const String subjectMath = 'home.subjects.math';
+  static const String subjectScience = 'home.subjects.science';
+  static const String subjectSocial = 'home.subjects.social';
 
-  static const String community = 'home.community';
-  static const String communitySub = 'home.community_sub';
-  static const String joinCommunity = 'home.join_community';
-  static const String addPlace = 'home.add_place';
+  static const String achievements = 'home.achievements';
 }
 
-abstract class Profile {
-  static const String editProfile = 'profile.edit_profile';
-  static const String helpSupport = 'profile.help_support';
-  static const String feedback = 'profile.feedback';
-  static const String darkMode = 'profile.dark_mode';
-  static const String lightMode = 'profile.light_mode';
-  static const String about = 'profile.about';
-  static const String rateUs = 'profile.rate_us';
-  static const String share = 'profile.share';
+/// Subject Details Keys
+abstract class SubjectDetailsKeys {
+  static const String statsLessons = 'subject_details.stats.lessons';
+  static const String statsTotalTime = 'subject_details.stats.total_time';
+  static const String statsXp = 'subject_details.stats.xp';
+
+  static const String ctaReady = 'subject_details.cta.ready';
+  static const String ctaNext = 'subject_details.cta.next';
 }
 
-abstract class SignLanguage {
-  static const String watchVideo = 'sign_language.watch_video';
-  static const String hello = 'sign_language.hello';
-  static const String helloDesc = 'sign_language.hello_desc';
-  static const String sorry = 'sign_language.sorry';
-  static const String sorryDesc = 'sign_language.sorry_desc';
-  static const String iloveyou = 'sign_language.iloveyou';
-  static const String iloveyouDesc = 'sign_language.iloveyou_desc';
-  static const String please = 'sign_language.please';
-  static const String pleaseDesc = 'sign_language.please_desc';
-  static const String yes = 'sign_language.yes';
-  static const String yesDesc = 'sign_language.yes_desc';
-  static const String goodNight = 'sign_language.good_night';
-  static const String goodNightDesc = 'sign_language.good_night_desc';
+/// Lesson Player Keys
+abstract class LessonKeys {
+  static const String videoLabel = 'lesson.video_label';
+  static const String durationUnit = 'lesson.duration_unit';
+  static const String overview = 'lesson.overview';
+  static const String objectives = 'lesson.objectives';
+
+  // Resources
+  static const String resTitle = 'lesson.resources.title';
+  static const String resNotes = 'lesson.resources.notes';
+  static const String resWorksheet = 'lesson.resources.worksheet';
+
+  static const String startQuiz = 'lesson.start_quiz';
 }
 
-abstract class Favorites {
-  static const String empty = 'favorites.empty';
-  static const String removed = 'favorites.removed';
-  static const String location = 'favorites.location';
+/// Quiz Keys
+abstract class QuizKeys {
+  static const String questionHeader = 'quiz.question_header';
+  static const String feedbackExcellent = 'quiz.feedback.excellent';
+  static const String feedbackGoodTry = 'quiz.feedback.good_try';
+  static const String tip = 'quiz.tip';
 }
 
-abstract class About{
-  static const String ourMission = 'about.our_mission';
-  static const String missionDesc = 'about.mission_desc';
-  static const String ourStory = 'about.our_story';
-  static const String storyDesc = 'about.story_desc';
-  static const String featuresImpact = 'about.features_impact';
-  static const String feature1 = 'about.feature1';
-  static const String feature2 = 'about.feature2';
-  static const String feature3 = 'about.feature3';
-  static const String feature4 = 'about.feature4';
+/// Gamification & Rewards Keys
+abstract class GamificationKeys {
+  static const String headerTitle = 'gamification.header_title';
+  static const String xpEarned = 'gamification.xp_earned';
+  static const String level = 'gamification.level';
+  static const String progressMsg = 'gamification.progress_msg';
+
+  // Stats
+  static const String statsTitle = 'gamification.stats.title';
+  static const String statsTotalXp = 'gamification.stats.total_xp';
+  static const String statsStreak = 'gamification.stats.streak';
+  static const String statsCompleted = 'gamification.stats.completed';
+
+  // Achievements
+  static const String achievementsTitle = 'gamification.achievements.title';
+  static const String achievementsEarnedStatus = 'gamification.achievements.earned_status';
+
+  // Badges
+  static const String badgeQuizMaster = 'gamification.badges.quiz_master';
+  static const String badgePerfectScore = 'gamification.badges.perfect_score';
+  static const String badgeSharpShooter = 'gamification.badges.sharp_shooter';
+  static const String badgeStreak7 = 'gamification.badges.streak_7';
+  static const String badgeDiamondMind = 'gamification.badges.diamond_mind';
+  static const String badgeFastLearner = 'gamification.badges.fast_learner';
+
+  // Weekly Goals
+  static const String goalsTitle = 'gamification.weekly_goals.title';
+  static const String goal1 = 'gamification.weekly_goals.goal1';
+  static const String goal2 = 'gamification.weekly_goals.goal2';
+  static const String goal3 = 'gamification.weekly_goals.goal3';
+
+  static const String continueBtn = 'gamification.continue_btn';
 }
 
-abstract class Community {
-  static const String enterTitle = 'community.enter_title';
-  static const String postTitle = "community.post_title";
-  static const String communityChat = 'community.community_chat';
-  static const String chatMessaging = 'community.chat_messaging';
-  static const String chatDesc = 'community.chat_desc';
-  static const String socialFeed = 'community.social_feed';
-  static const String socialDesc = 'community.social_desc';
-  static const String typeMessage = 'community.type_message';
-  static const String addComment = 'community.add_comment';
-  static const String send = 'community.send';
-  static const String post = 'community.post';
-  static const String like = 'community.like';
-  static const String comments = 'community.comments';
-  static const String share = 'community.share';
+/// Parent Dashboard Keys
+abstract class ParentKeys {
+  static const String title = 'parent.title';
+
+  // Stats
+  static const String statsAvgScore = 'parent.stats.avg_score';
+  static const String statsThisWeek = 'parent.stats.this_week';
+  static const String statsCompleted = 'parent.stats.completed';
+
+  // Performance
+  static const String perfTitle = 'parent.performance.title';
+  static const String perfCurrentGrade = 'parent.performance.current_grade';
+
+  // Headers
+  static const String perfVideos = 'parent.performance.videos';
+  static const String perfQuizzes = 'parent.performance.quizzes';
+  static const String perfBadges = 'parent.performance.badges';
+  static const String perfPoints = 'parent.performance.points';
+
+  // Report
+  static const String reportTitle = 'parent.report.title';
+  static const String reportLessons = 'parent.report.lessons';
+  static const String reportStudyTime = 'parent.report.study_time';
+  static const String reportFromLastWeek = 'parent.report.from_last_week';
+  static const String reportEngagement = 'parent.report.engagement';
+
+  // Recent Activity
+  static const String recentTitle = 'parent.recent.title';
+  static const String recentViewAll = 'parent.recent.view_all';
+  static const String timeHoursAgo = 'parent.recent.time.hours_ago';
+  static const String timeYesterday = 'parent.recent.time.yesterday';
+  static const String timeDaysAgo = 'parent.recent.time.days_ago';
+
+  static const String recommendationsTitle = 'parent.recommendations.title';
 }
 
-abstract class Notifications{
-  static const String notifications = 'notifications.notifications';
-  static const String noNotifications = 'notifications.no_notifications';
-  static const String remove = 'notifications.remove';
+/// Profile & Settings Keys
+abstract class ProfileKeys {
+  static const String title = 'profile.title';
+  static const String edit = 'profile.edit';
+  static const String editName = 'profile.edit_name';
+  static const String editEmail = 'profile.edit_email';
+  static const String editPhone = 'profile.edit_phone';
+  static const String editSuccess = 'profile.edit_success';
+  static const String editError = 'profile.edit_failure';
+  static const String save = 'profile.save';
+  static const String avatar = 'profile.avatar';
+
+  // Settings
+  static const String settingsTitle = 'profile.settings.title';
+  static const String settingsLanguage = 'profile.settings.language';
+  static const String settingsNotifications = 'profile.settings.notifications';
+  static const String settingsOn = 'profile.settings.on';
+  static const String settingsOff = 'profile.settings.off';
+  static const String settingsDownloads = 'profile.settings.downloads';
+
+  // Preferences
+  static const String prefTitle = 'profile.preferences.title';
+  static const String prefDarkMode = 'profile.preferences.dark_mode';
+
+  // Support
+  static const String supportTitle = 'profile.support.title';
+  static const String supportHelp = 'profile.support.help';
+
+  static const String logout = 'profile.logout';
+  static const String footerMade = 'profile.footer_made';
 }
 
-abstract class HelpSupport {
-  static const String faq = 'help_support.faq';
-  static const String faq1 = 'help_support.faq1';
-  static const String faq2 = 'help_support.faq2';
-  static const String faq3 = 'help_support.faq3';
-  static const String faq4 = 'help_support.faq4';
-  static const String contactSupport = 'help_support.contact_support';
-  static const String phone = 'help_support.phone';
-  static const String email = 'help_support.email';
-  static const String facebook = 'help_support.facebook';
-  static const String facebookPage = 'help_support.facebook_page';
-  static const String supportMessage = 'help_support.support_message';
-  static const String freq1desc = 'help_support.freq1desc';
-  static const String freq2desc = 'help_support.freq2desc';
-  static const String freq3desc = 'help_support.freq3desc';
-  static const String freq4desc = 'help_support.freq4desc';
+/// Navigation Bar Keys
+abstract class NavKeys {
+  static const String home = 'nav.home';
+  static const String rewards = 'nav.rewards';
+  static const String reports = 'nav.reports';
+  static const String profile = 'nav.profile';
 }
-
-abstract class General {
-  static const String ok = 'general.ok';
-  static const String yes = 'general.yes';
-  static const String noPostsYet = 'general.no_posts_yet';
-  static const String noCommentsYet = 'general.no_comments_yet';
-  static const String noRoleModelsYet = 'general.no_role_models_yet';
-  static const String beTheFirstToShare = 'general.be_the_first_to_share';
-  static const String fireNotification = 'general.fire_notification';
-  static const String newPost = 'general.new_post';
-  static const String postedBy = 'general.posted_by';
-  static const String loading = 'general.loading';
-  static const String error = 'general.error';
-  static const String success = 'general.success';
-  static const String save = 'general.save';
-  static const String cancel = 'general.cancel';
-  static const String delete = 'general.delete';
-  static const String add = 'general.add';
-  static const String edit = 'general.edit';
-  static const String search = 'general.search';
-  static const String settings = 'general.settings';
-  static const String logout = 'general.logout';
-  static const String submit = 'general.submit';
-  static const String thanksFeedback = 'general.thanksFeedback';
-  static const String enterYourFeedback = 'general.enter_your_feedback';
-  static const String addToFavorites = 'general.added_to_favorites';
-  static const String removeFromFavorites = 'general.removed_from_favorites';
-  static const String center = 'general.center';
-  static const String type = 'general.type';
-  static const String dismiss = 'general.dismiss';
-  static const String noLessonsAvailable = 'general.no_lessons_available';
-}
-
-
-abstract class Lessons {
-  static const String lessonCompleted = 'lessons.lesson_completed';
-  static const String progressUpdated = 'lessons.progress_updated';
-  static const String lesson = 'lessons.lesson';
-  static const String lessonDetails = 'lessons.lesson_details';
-  static const String progressSaved = 'lessons.progress_saved';
-}
-
-
-abstract class RoleModels {
-  static const String title = 'role_models.title';
-  static const String discoverInspiration = 'role_models.discover_inspiration';
-  static const String viewDetails = 'role_models.view_details';
-  static const String achievements = 'role_models.achievements';
-  static const String story = 'role_models.story';
-}
-
-abstract class CategoriesPlaces {
-  static const String all = 'categories_places.all';
-  static const String cafe = 'categories_places.cafe';
-  static const String restaurant = 'categories_places.restaurant';
-  static const String park = 'categories_places.park';
-  static const String clinic = 'categories_places.clinic';
-  static const String pharmacy = 'categories_places.pharmacy';
-  static const String mall = 'categories_places.mall';
-  static const String hospital = 'categories_places.hospital';
-}
-
-abstract class CategoriesSignLanguage{
-  static const String all = 'categories_lessons.all';
-  static const String beginner = 'categories_lessons.beginner';
-  static const String intermediate = 'categories_lessons.intermediate';
-  static const String hard = 'categories_lessons.hard';
-  static const String veryHard = 'categories_lessons.very_hard';
-}
-
-abstract class AccessiblePlaces {
-  static const String title = 'accessible_places.title';
-  static const String searchPlaces = 'accessible_places.search_places';
-  static const String nearby = 'accessible_places.nearby';
-  static const String accessibilityFeatures = 'accessible_places.accessibility_features';
-  static const String wheelchair = 'accessible_places.wheelchair';
-  static const String braille = 'accessible_places.braille';
-  static const String hearing = 'accessible_places.hearing';
-  static const String distance = 'accessible_places.distance';
-  static const String directions = 'accessible_places.directions';
-  static const String call = 'accessible_places.call';
-  static const String addPlace = 'accessible_places.add_place';
-  static const String placeName = 'accessible_places.place_name';
-  static const String latitude = 'accessible_places.latitude';
-  static const String longitude = 'accessible_places.longitude';
-  static const String category = 'accessible_places.category';
-  static const String selectCategory = 'accessible_places.select_category';
-  static const String enterLatitude = 'accessible_places.enter_latitude';
-  static const String enterLongitude = 'accessible_places.enter_longitude';
-  static const String enterName = 'accessible_places.enter_name';
-}
-
-abstract class Places {
-  static const String title = 'places.title';
-  static const String searchPlaces = 'places.search_places';
-  static const String nearby = 'places.nearby';
-  static const String accessibilityFeatures = 'places.accessibility_features';
-  static const String wheelchair = 'places.wheelchair';
-  static const String braille = 'places.braille';
-  static const String hearing = 'places.hearing';
-  static const String distance = 'places.distance';
-  static const String directions = 'places.directions';
-  static const String call = 'places.call';
-}
-

@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/config/app_keys_localization.dart';
 
 
 
@@ -20,7 +23,7 @@ class OrDivider extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.02),
-          child: const Text("Or continue with"),
+          child: Text(AuthKeys.actionOrContinue.tr()),
         ),
         Expanded(child: Divider(color: Colors.grey, thickness: 1)),
       ],
