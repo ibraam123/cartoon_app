@@ -61,11 +61,14 @@ class SettingContainer extends StatelessWidget {
           ),
           Spacer(),
           settingEntity.haveForwardIcon == true
-              ? Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  color: theme.colorScheme.onSurfaceVariant,
-                  size: 20.r,
-                )
+              ? IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 20.r,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+          )
               : ProfileSwitch(value: switchValue, onChanged: onSwitchChanged),
         ],
       ),

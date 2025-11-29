@@ -1,4 +1,6 @@
 import 'package:cartoon_app/core/config/app_colors.dart';
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +25,7 @@ class HeadersSection extends StatelessWidget {
           TextButton(
             onPressed: () {},
             child: Text(
-              "See All",
+              HomeKeys.continueSeeAll.tr(),
               style: theme.textTheme.bodySmall?.copyWith(
                 fontSize: 12.sp,
                 color: AppColors.primary,

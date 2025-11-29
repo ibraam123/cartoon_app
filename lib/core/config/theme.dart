@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   // Light Theme
   static final ThemeData lightTheme = ThemeData(
+    dividerColor: const Color(0xFFE0E0E0),
     brightness: Brightness.light,
     primaryColor: const Color(0xff7dc6e1),
     primaryColorDark: const Color(0xFF004799),
@@ -143,6 +144,7 @@ class AppTheme {
 
   // Dark Theme
   static final ThemeData darkTheme = ThemeData(
+    dividerColor: const Color(0xFF404040),
     brightness: Brightness.dark,
     primaryColor: const Color(0xff7dc6e1),
     primaryColorDark: const Color(0xFF0066CC),

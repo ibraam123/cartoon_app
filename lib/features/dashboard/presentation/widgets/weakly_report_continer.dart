@@ -20,8 +20,10 @@ class WeeklyReportContainer extends StatelessWidget {
           colors: theme.brightness == Brightness.light
               ? [const Color(0xffeaf4f7), const Color(0xffecf5ec)]
               : [
-            theme.colorScheme.surface,
-            theme.colorScheme.surfaceContainerHighest,
+            theme.colorScheme.surface.withValues(alpha: 0.1),
+            theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
+            theme.colorScheme.surface.withValues(alpha: 0.1),
+
           ],
         ),
         borderRadius: BorderRadius.circular(20.r),

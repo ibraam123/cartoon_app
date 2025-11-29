@@ -39,39 +39,41 @@ class DashboardHeader extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: DashBoardContainer(
-                  dashboardCardEntity: DashboardCardEntity(
-                    icon: Icons.video_library,
-                    title: '15',
-                    subTitle: ParentKeys.perfVideos.tr() ,
+          IntrinsicHeight(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: DashBoardContainer(
+                    dashboardCardEntity: DashboardCardEntity(
+                      icon: Icons.video_library,
+                      title: '15',
+                      subTitle: ParentKeys.perfVideos.tr() ,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(width: 10.w),
-              Expanded(
-                child: DashBoardContainer(
-                  dashboardCardEntity: DashboardCardEntity(
-                    icon: Icons.quiz,
-                    title: '10',
-                    subTitle: ParentKeys.perfQuizzes.tr(),
+                SizedBox(width: 10.w),
+                Expanded(
+                  child: DashBoardContainer(
+                    dashboardCardEntity: DashboardCardEntity(
+                      icon: Icons.quiz,
+                      title: '10',
+                      subTitle: ParentKeys.perfQuizzes.tr(),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(width: 10.w),
-              Expanded(
-                child: DashBoardContainer(
-                  dashboardCardEntity: DashboardCardEntity(
-                    icon: Icons.star,
-                    title: '150',
-                    subTitle: ParentKeys.perfPoints.tr() ,
+                SizedBox(width: 10.w),
+                Expanded(
+                  child: DashBoardContainer(
+                    dashboardCardEntity: DashboardCardEntity(
+                      icon: Icons.star,
+                      title: '150',
+                      subTitle: ParentKeys.perfPoints.tr() ,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
