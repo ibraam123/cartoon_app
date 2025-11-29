@@ -21,6 +21,7 @@ abstract class OnboardingKeys {
   static const String btnSkip = 'onboarding.buttons.skip';
   static const String btnNext = 'onboarding.buttons.next';
   static const String btnGetStarted = 'onboarding.buttons.get_started';
+  static const String btnDone = 'onboarding.buttons.done';
 }
 
 /// Authentication Screen Keys
@@ -77,6 +78,8 @@ abstract class AuthKeys {
   static const String actionOr = 'auth.actions.or';
   static const String actionOrContinue = 'auth.actions.or_continue';
   static const String joinFooter = 'auth.actions.join_footer';
+
+
 }
 
 /// Forgot Password Keys
@@ -213,6 +216,12 @@ abstract class ParentKeys {
   static const String perfTitle = 'parent.performance.title';
   static const String perfCurrentGrade = 'parent.performance.current_grade';
 
+  // Headers
+  static const String perfVideos = 'parent.performance.videos';
+  static const String perfQuizzes = 'parent.performance.quizzes';
+  static const String perfBadges = 'parent.performance.badges';
+  static const String perfPoints = 'parent.performance.points';
+
   // Report
   static const String reportTitle = 'parent.report.title';
   static const String reportLessons = 'parent.report.lessons';
@@ -234,6 +243,12 @@ abstract class ParentKeys {
 abstract class ProfileKeys {
   static const String title = 'profile.title';
   static const String edit = 'profile.edit';
+  static const String editName = 'profile.edit_name';
+  static const String editEmail = 'profile.edit_email';
+  static const String editPhone = 'profile.edit_phone';
+  static const String editSuccess = 'profile.edit_success';
+  static const String editError = 'profile.edit_failure';
+  static const String save = 'profile.save';
   static const String avatar = 'profile.avatar';
 
   // Settings

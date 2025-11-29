@@ -1,3 +1,5 @@
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +20,7 @@ class LogoutButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: CustomButton(
-        text: "Logout",
+        text: ProfileKeys.logout.tr(),
         onTap: () {
           showDialog(
             context: context,

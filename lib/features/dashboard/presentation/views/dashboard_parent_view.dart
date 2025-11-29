@@ -1,6 +1,10 @@
 import 'package:cartoon_app/core/config/app_colors.dart';
+import 'package:cartoon_app/features/auth/presentation/logic/auth_cubit.dart';
 import 'package:cartoon_app/features/home/preseantation/widgets/header_section.dart';
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -18,7 +22,10 @@ class DashboardParentView extends StatelessWidget {
 
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: HeadersSection(text: "Subject Performance", haveSeeAll: false),
+          child: HeadersSection(
+            text: ParentKeys.perfTitle.tr(),
+            haveSeeAll: false,
+          ),
         ),
 
         SizedBox(height: 10.h),
@@ -26,20 +33,20 @@ class DashboardParentView extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Column(
-            children:  [
-              const HeaderSubjectsPerformanceContainer(
-                title: "Mathematics",
-                subTitle: "Current Grade: A",
+            children: [
+              HeaderSubjectsPerformanceContainer(
+                title: HomeKeys.subjectMath.tr(),
+                subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
               ),
               SizedBox(height: 16.h),
-              const HeaderSubjectsPerformanceContainer(
-                title: "Mathematics",
-                subTitle: "Current Grade: A",
+              HeaderSubjectsPerformanceContainer(
+                title: HomeKeys.subjectMath.tr(),
+                subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
               ),
               SizedBox(height: 16.h),
-              const HeaderSubjectsPerformanceContainer(
-                title: "Mathematics",
-                subTitle: "Current Grade: A",
+              HeaderSubjectsPerformanceContainer(
+                title: HomeKeys.subjectMath.tr(),
+                subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
               ),
             ],
           ),
@@ -49,7 +56,10 @@ class DashboardParentView extends StatelessWidget {
 
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: HeadersSection(text: "Weekly Report", haveSeeAll: false),
+          child: HeadersSection(
+            text: ParentKeys.reportTitle.tr(),
+            haveSeeAll: false,
+          ),
         ),
 
         SizedBox(height: 10.h),
@@ -63,7 +73,10 @@ class DashboardParentView extends StatelessWidget {
 
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: HeadersSection(text: "Recent Activity", haveSeeAll: true),
+          child: HeadersSection(
+            text: ParentKeys.recentTitle.tr(),
+            haveSeeAll: true,
+          ),
         ),
 
         SizedBox(height: 10.h),
@@ -74,22 +87,22 @@ class DashboardParentView extends StatelessWidget {
             children: [
               LessonProgressCard(
                 title: "Algebra Basics",
-                subject: "Mathematics",
-                timeAgo: "2 hours ago",
+                subject: HomeKeys.subjectMath.tr(),
+                timeAgo: ParentKeys.timeHoursAgo.tr(),
                 percent: 95,
               ),
               SizedBox(height: 10.h),
               LessonProgressCard(
                 title: "Algebra Basics",
-                subject: "Mathematics",
-                timeAgo: "2 hours ago",
+                subject: HomeKeys.subjectMath.tr(),
+                timeAgo: ParentKeys.timeHoursAgo.tr(),
                 percent: 95,
               ),
               SizedBox(height: 10.h),
               LessonProgressCard(
                 title: "Algebra Basics",
-                subject: "Mathematics",
-                timeAgo: "2 hours ago",
+                subject: HomeKeys.subjectMath.tr(),
+                timeAgo: ParentKeys.timeHoursAgo.tr(),
                 percent: 95,
               ),
             ],
@@ -100,7 +113,10 @@ class DashboardParentView extends StatelessWidget {
 
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: HeadersSection(text: "Recommendations", haveSeeAll: false),
+          child: HeadersSection(
+            text: ParentKeys.recommendationsTitle.tr(),
+            haveSeeAll: false,
+          ),
         ),
 
         SizedBox(height: 10.h),
@@ -118,7 +134,7 @@ class DashboardParentView extends StatelessWidget {
                   blurRadius: 10,
                   spreadRadius: 1,
                   offset: const Offset(0, 3),
-                )
+                ),
               ],
             ),
             child: Row(
@@ -152,7 +168,6 @@ class DashboardParentView extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20.h),
-
       ],
     );
   }
@@ -172,7 +187,7 @@ class DashboardHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Parent Dashboard",
+            ParentKeys.title.tr(),
             style: theme.textTheme.bodyLarge!.copyWith(
               color: Colors.white,
               fontSize: 16.sp,
@@ -181,7 +196,7 @@ class DashboardHeader extends StatelessWidget {
           ),
           SizedBox(height: 5.h),
           Text(
-            "Ahmed Mohamed - Grade 8",
+            "${context.watch<AuthCubit>().fullName} - Grade 8",
             style: theme.textTheme.bodyMedium!.copyWith(
               color: Colors.white,
               fontSize: 14.sp,
@@ -196,7 +211,7 @@ class DashboardHeader extends StatelessWidget {
                   dashboardCardEntity: DashboardCardEntity(
                     icon: Icons.video_library,
                     title: '15',
-                    subTitle: 'Videos Watched',
+                    subTitle: ParentKeys.perfVideos.tr() ,
                   ),
                 ),
               ),
@@ -206,7 +221,7 @@ class DashboardHeader extends StatelessWidget {
                   dashboardCardEntity: DashboardCardEntity(
                     icon: Icons.quiz,
                     title: '10',
-                    subTitle: 'Quizzes Taken',
+                    subTitle: ParentKeys.perfQuizzes.tr(),
                   ),
                 ),
               ),
@@ -216,7 +231,7 @@ class DashboardHeader extends StatelessWidget {
                   dashboardCardEntity: DashboardCardEntity(
                     icon: Icons.star,
                     title: '150',
-                    subTitle: 'Points Earned',
+                    subTitle: ParentKeys.perfPoints.tr() ,
                   ),
                 ),
               ),
@@ -227,7 +242,6 @@ class DashboardHeader extends StatelessWidget {
     );
   }
 }
-
 
 class DashBoardContainer extends StatelessWidget {
   const DashBoardContainer({super.key, required this.dashboardCardEntity});
@@ -264,7 +278,6 @@ class DashBoardContainer extends StatelessWidget {
               dashboardCardEntity.subTitle,
               style: TextStyle(
                 fontSize: 12.sp,
-                overflow: TextOverflow.ellipsis,
                 fontWeight: FontWeight.w400,
                 color: AppColors.white,
               ),
@@ -381,7 +394,6 @@ class HeaderSubjectsPerformanceContainer extends StatelessWidget {
           ),
           SizedBox(height: 10.h),
 
-
           ClipRRect(
             borderRadius: BorderRadius.circular(12.r),
             child: LinearProgressIndicator(
@@ -412,7 +424,10 @@ class WeeklyReportContainer extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: theme.brightness == Brightness.light
               ? [const Color(0xffeaf4f7), const Color(0xffecf5ec)]
-              : [theme.colorScheme.surface, theme.colorScheme.surfaceContainerHighest],
+              : [
+                  theme.colorScheme.surface,
+                  theme.colorScheme.surfaceContainerHighest,
+                ],
         ),
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
@@ -433,17 +448,17 @@ class WeeklyReportContainer extends StatelessWidget {
               children: [
                 Expanded(
                   child: _StatCard(
-                    title: "Lessons Completed",
+                    title: ParentKeys.reportLessons.tr(),
                     value: "12",
-                    subtitle: "+3 from last week",
+                    subtitle: "+3 ${ParentKeys.reportFromLastWeek.tr()}",
                   ),
                 ),
                 SizedBox(width: 12.w),
                 Expanded(
                   child: _StatCard(
-                    title: "Hours Studied",
+                    title: ParentKeys.reportStudyTime.tr(),
                     value: "8.5h",
-                    subtitle: "+1.2h vs last week",
+                    subtitle: "+1.2h ${ParentKeys.reportFromLastWeek.tr()}",
                   ),
                 ),
               ],
@@ -471,7 +486,7 @@ class WeeklyReportContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Engagement Level",
+                  ParentKeys.reportEngagement.tr(),
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -484,15 +499,13 @@ class WeeklyReportContainer extends StatelessWidget {
                     minHeight: 8.h,
                     backgroundColor: theme.dividerColor,
                     value: 0.50,
-                    valueColor: const AlwaysStoppedAnimation(
-                      Color(0xFF56B9E6),
-                    ),
+                    valueColor: const AlwaysStoppedAnimation(Color(0xFF56B9E6)),
                   ),
                 ),
 
                 SizedBox(height: 8.h),
                 Text(
-                  "50% this week",
+                  "50% ${ParentKeys.statsThisWeek.tr()}",
                   style: theme.textTheme.bodySmall?.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
@@ -544,18 +557,11 @@ class _StatCard extends StatelessWidget {
             style: theme.textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),
-
           ),
           SizedBox(height: 8.h),
-          Text(
-            value,
-            style: theme.textTheme.headlineSmall,
-          ),
+          Text(value, style: theme.textTheme.headlineSmall),
           SizedBox(height: 6.h),
-          Text(
-            subtitle,
-            style: theme.textTheme.bodySmall,
-          ),
+          Text(subtitle, style: theme.textTheme.bodySmall),
         ],
       ),
     );
@@ -601,10 +607,7 @@ class LessonProgressCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: theme.textTheme.titleMedium,
-                ),
+                Text(title, style: theme.textTheme.titleMedium),
 
                 SizedBox(height: 6.h),
 
@@ -615,7 +618,9 @@ class LessonProgressCard extends StatelessWidget {
                 Text(
                   timeAgo,
                   style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.textTheme.bodySmall?.color?.withValues(alpha: 0.6),
+                    color: theme.textTheme.bodySmall?.color?.withValues(
+                      alpha: 0.6,
+                    ),
                   ),
                 ),
               ],

@@ -1,3 +1,4 @@
+// dart
 import 'package:cartoon_app/features/home/preseantation/logic/profile_cubit.dart';
 import 'package:cartoon_app/features/profile/domain/entities/setting_entitiy.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ import '../widgets/header_profile_container.dart';
 import '../widgets/logout_buttoon.dart';
 import '../widgets/setting_container.dart';
 import '../widgets/settings_list.dart';
+import '../../../../core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -37,16 +40,16 @@ class ProfileViewBody extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 20.h),
       children: [
         HeaderProfileContainer(
-          title: "Level 8 Student",
-          subTitle: "350 XP to Level 9",
+          title: '${GamificationKeys.level.tr()} 8 Student',
+          subTitle: GamificationKeys.progressMsg.tr(),
           iconText: profileCubit.selectedIcon, // Use the state variable
           header: authCubit.fullName,
         ),
         SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: const HeadersSection(
-            text: "Choose Your Avatar",
+          child: HeadersSection(
+            text: ProfileKeys.avatar.tr(),
             haveSeeAll: false,
           ),
         ),
@@ -62,10 +65,7 @@ class ProfileViewBody extends StatelessWidget {
         SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: const HeadersSection(
-            text: "Account Settings",
-            haveSeeAll: false,
-          ),
+          child: HeadersSection(text: ProfileKeys.settingsTitle.tr(), haveSeeAll: false),
         ),
         SizedBox(height: 10.h),
         Padding(
@@ -77,7 +77,7 @@ class ProfileViewBody extends StatelessWidget {
         SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: const HeadersSection(text: "Preferences", haveSeeAll: false),
+          child: HeadersSection(text: ProfileKeys.prefTitle.tr(), haveSeeAll: false),
         ),
         SizedBox(height: 10.h),
         Padding(
@@ -86,10 +86,10 @@ class ProfileViewBody extends StatelessWidget {
             widget: SettingContainer(
               settingEntity: SettingEntity(
                 icon: Icons.dark_mode_outlined,
-                text: "Dark Mode",
+                text: ProfileKeys.prefDarkMode.tr(),
                 subText: themeCubit.state.themeMode == ThemeMode.dark
-                    ? "On"
-                    : "Off",
+                    ? ProfileKeys.settingsOn.tr()
+                    : ProfileKeys.settingsOff.tr(),
                 haveForwardIcon: false,
               ),
               switchValue: themeCubit.state.themeMode == ThemeMode.dark,
@@ -100,7 +100,7 @@ class ProfileViewBody extends StatelessWidget {
         SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: const HeadersSection(text: "Support", haveSeeAll: false),
+          child: HeadersSection(text: ProfileKeys.supportTitle.tr(), haveSeeAll: false),
         ),
         SizedBox(height: 10.h),
         Padding(
@@ -109,8 +109,8 @@ class ProfileViewBody extends StatelessWidget {
             widget: SettingContainer(
               settingEntity: SettingEntity(
                 icon: Icons.help_outline_outlined,
-                text: "Help & Support",
-                subText: "Off",
+                text: ProfileKeys.supportHelp.tr(),
+                subText: ProfileKeys.settingsOff.tr(),
                 haveForwardIcon: true,
               ),
             ),
@@ -120,9 +120,9 @@ class ProfileViewBody extends StatelessWidget {
         LogoutButton(),
         SizedBox(height: 20.h),
         Text(
-          "EDUTOON v1.0.0 \nMade with ❤️ for Egyptian students",
+          'EDUTOON v1.0.0 \n${ProfileKeys.footerMade.tr()}',
           style: TextStyle(
-            fontSize: 8.sp,
+            fontSize: 14.sp,
             fontWeight: FontWeight.w400,
             color: Colors.grey,
           ),
@@ -132,7 +132,3 @@ class ProfileViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

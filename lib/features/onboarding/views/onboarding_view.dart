@@ -51,7 +51,7 @@ class OnboardingView extends StatelessWidget {
     final Random random = Random();
 
     return IntroductionScreen(
-      globalBackgroundColor: theme.colorScheme.surface,
+      globalBackgroundColor: theme.scaffoldBackgroundColor,
       // BUILD PAGES DYNAMICALLY
       pages: onboardingList.map((item) {
         return PageViewModel(
@@ -59,10 +59,10 @@ class OnboardingView extends StatelessWidget {
           body: item.description,
           image: OnBoardingImage(imagePath: item.imageAssets, icon: item.icon , colorIcon: colors[random.nextInt(colors.length)],),
           decoration: PageDecoration(
-            titleTextStyle: theme.textTheme.headlineSmall!.copyWith(
+            titleTextStyle: theme.textTheme.headlineLarge!.copyWith(
               fontWeight: FontWeight.bold,
             ), //fontSize: 22.sp,
-            bodyTextStyle: theme.textTheme.bodyMedium!, //fontSize: 16.sp,
+            bodyTextStyle: theme.textTheme.bodyLarge!, //fontSize: 16.sp,
             imagePadding: EdgeInsets.only(top: 20.h),
             contentMargin: EdgeInsets.symmetric(horizontal: 16.w),
           ),
@@ -89,7 +89,7 @@ class OnboardingView extends StatelessWidget {
       ),
 
       done: OnBoardingButton(
-        text: OnboardingKeys.btnGetStarted.tr(),
+        text: OnboardingKeys.btnDone.tr(),
         isDone: true,
       ) ,
       onDone: () {
