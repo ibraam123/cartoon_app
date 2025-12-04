@@ -110,7 +110,6 @@ class ProfileViewBody extends StatelessWidget {
               settingEntity: SettingEntity(
                 icon: Icons.help_outline_outlined,
                 text: ProfileKeys.supportHelp.tr(),
-                subText: ProfileKeys.settingsOff.tr(),
                 haveForwardIcon: true,
               ),
             ),

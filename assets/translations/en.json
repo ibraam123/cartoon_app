@@ -245,6 +245,8 @@
       "help": "Help & Support"
     },
     "logout": "Log Out",
+    "confirm_logout": "Are you sure you want to log out?",
+    "cancel": "Cancel",
     "footer_made": "Made with ❤️ for Egyptian Students"
   },
   "nav": {

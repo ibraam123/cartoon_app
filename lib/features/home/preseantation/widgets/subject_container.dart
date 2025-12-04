@@ -1,3 +1,5 @@
+import 'package:cartoon_app/core/config/app_keys_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -46,7 +48,7 @@ class SubjectContainer extends StatelessWidget {
               Spacer(),
               Column(
                 children: [
-                  Text("Progress" , style: TextStyle(
+                  Text(GamificationKeys.statsTitle.tr() , style: TextStyle(
                     fontSize: 12.sp,
                     color: theme.textTheme.bodySmall?.color,
                   ),),

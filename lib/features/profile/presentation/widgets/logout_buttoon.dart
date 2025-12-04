@@ -26,12 +26,17 @@ class LogoutButton extends StatelessWidget {
             context: context,
             builder: (BuildContext dialogContext) {
               return AlertDialog(
-                title: const Text('Logout'),
-                content: const Text('Are you sure you want to logout?'),
+                title:  Text(
+                  ProfileKeys.logout.tr(),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                content:  Text(
+                  ProfileKeys.logoutConfirm.tr(),
+                ),
                 actions: <Widget>[
                   TextButton(
                     child: Text(
-                      'Cancel',
+                      ProfileKeys.cancel.tr() ,
                       style: TextStyle(color: AppColors.primary),
                     ),
                     onPressed: () {
@@ -41,8 +46,8 @@ class LogoutButton extends StatelessWidget {
                     },
                   ),
                   TextButton(
-                    child: const Text(
-                      'Logout',
+                    child: Text(
+                      ProfileKeys.logout.tr(),
                       style: TextStyle(color: Colors.red),
                     ),
                     onPressed: () {

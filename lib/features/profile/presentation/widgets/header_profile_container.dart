@@ -138,6 +138,7 @@ class HeaderProfileContainer extends StatelessWidget {
                                   authCubit.updateProfile(
                                     fullName: finalFullName,
                                   );
+                                  Navigator.pop(context);
                                 }
                               },
                       );

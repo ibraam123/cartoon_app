@@ -175,6 +175,7 @@ abstract class GamificationKeys {
   static const String xpEarned = 'gamification.xp_earned';
   static const String level = 'gamification.level';
   static const String progressMsg = 'gamification.progress_msg';
+  static const String progress = 'gamification.progress';
 
   // Stats
   static const String statsTitle = 'gamification.stats.title';
@@ -268,6 +269,8 @@ abstract class ProfileKeys {
   static const String supportHelp = 'profile.support.help';
 
   static const String logout = 'profile.logout';
+  static const String logoutConfirm = 'profile.confirm_logout';
+  static const String cancel = 'profile.cancel';
   static const String footerMade = 'profile.footer_made';
 }
 
