@@ -29,41 +29,7 @@ class RewardsView extends StatelessWidget {
           child: HeadersSection(text: GamificationKeys.statsTitle.tr() , haveSeeAll: false,),
         ),
         SizedBox(height: 10.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: IntrinsicHeight(
-            child: Row(
-              children: [
-                Expanded(
-                  child: ProgressContainer(
-                    icon: Icons.outlet_outlined,
-                    colorIcon: Colors.yellowAccent,
-                    title: "2,450",
-                    subTitle: GamificationKeys.statsTotalXp.tr(),
-                  ),
-                ),
-                SizedBox(width: 10.w),
-                Expanded(
-                  child: ProgressContainer(
-                    icon: Icons.outlet_outlined,
-                    colorIcon: Colors.greenAccent,
-                    title: "12",
-                    subTitle: GamificationKeys.statsStreak.tr(),
-                  ),
-                ),
-                SizedBox(width: 10.w),
-                Expanded(
-                  child: ProgressContainer(
-                    icon: Icons.outlet_outlined,
-                    colorIcon: Colors.redAccent,
-                    title: "28",
-                    subTitle: GamificationKeys.statsCompleted.tr(),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        ProgressList(),
         SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -95,6 +61,51 @@ class RewardsView extends StatelessWidget {
         ),
         SizedBox(height: 20.h),
       ],
+    );
+  }
+}
+
+class ProgressList extends StatelessWidget {
+  const ProgressList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Expanded(
+              child: ProgressContainer(
+                icon: Icons.outlet_outlined,
+                colorIcon: Colors.yellowAccent,
+                title: "2,450",
+                subTitle: GamificationKeys.statsTotalXp.tr(),
+              ),
+            ),
+            SizedBox(width: 10.w),
+            Expanded(
+              child: ProgressContainer(
+                icon: Icons.outlet_outlined,
+                colorIcon: Colors.greenAccent,
+                title: "12",
+                subTitle: GamificationKeys.statsStreak.tr(),
+              ),
+            ),
+            SizedBox(width: 10.w),
+            Expanded(
+              child: ProgressContainer(
+                icon: Icons.outlet_outlined,
+                colorIcon: Colors.redAccent,
+                title: "28",
+                subTitle: GamificationKeys.statsCompleted.tr(),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
