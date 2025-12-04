@@ -50,30 +50,7 @@ class HomeView extends StatelessWidget {
           child: HeadersSection(text: HomeKeys.subjectsTitle.tr(), haveSeeAll: false),
         ),
         SizedBox(height: 10.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              SubjectContainer(
-                bkgColor: theme.colorScheme.secondary,
-                iconSubject: Icons.book_outlined,
-                text: "Continue Learning",
-              ),
-              SizedBox(height: 10.h),
-              SubjectContainer(
-                bkgColor: theme.colorScheme.secondary,
-                iconSubject: Icons.book_outlined,
-                text: "Continue Learning",
-              ),
-              SizedBox(height: 10.h),
-              SubjectContainer(
-                bkgColor: theme.colorScheme.secondary,
-                iconSubject: Icons.book_outlined,
-                text: "Continue Learning",
-              ),
-            ],
-          ),
-        ),
+        SubjectsList(theme: theme),
         /*SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -104,6 +81,43 @@ class HomeView extends StatelessWidget {
         ),
         SizedBox(height: 20.h),
       ],
+    );
+  }
+}
+
+class SubjectsList extends StatelessWidget {
+  const SubjectsList({
+    super.key,
+    required this.theme,
+  });
+
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        children: [
+          SubjectContainer(
+            bkgColor: theme.colorScheme.secondary,
+            iconSubject: Icons.book_outlined,
+            text: "Continue Learning",
+          ),
+          SizedBox(height: 10.h),
+          SubjectContainer(
+            bkgColor: theme.colorScheme.secondary,
+            iconSubject: Icons.book_outlined,
+            text: "Continue Learning",
+          ),
+          SizedBox(height: 10.h),
+          SubjectContainer(
+            bkgColor: theme.colorScheme.secondary,
+            iconSubject: Icons.book_outlined,
+            text: "Continue Learning",
+          ),
+        ],
+      ),
     );
   }
 }
