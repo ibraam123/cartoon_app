@@ -28,6 +28,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     final items = [
       NavItem(Icons.home_outlined, NavKeys.home.tr()),
       NavItem(Icons.card_giftcard_outlined, NavKeys.rewards.tr()),
+      NavItem(
+          Icons.star_border_outlined, "Eduline"
+      ),
       NavItem(Icons.analytics_outlined, NavKeys.reports.tr()),
       NavItem(Icons.person_outline, NavKeys.profile.tr()),
     ];

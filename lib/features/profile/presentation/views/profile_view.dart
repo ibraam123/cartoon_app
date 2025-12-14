@@ -34,7 +34,9 @@ class ProfileViewBody extends StatelessWidget {
     // Now we can safely watch the Cubit
     final profileCubit = context.watch<ProfileCubit>();
     final authCubit = context.watch<AuthCubit>();
-    final themeCubit = context.watch<ThemeCubit>(); // Connect ThemeCubit
+    final themeCubit = context.watch<ThemeCubit>();
+
+
 
     return ListView(
       padding: EdgeInsets.only(bottom: 20.h),
@@ -110,7 +112,6 @@ class ProfileViewBody extends StatelessWidget {
               settingEntity: SettingEntity(
                 icon: Icons.help_outline_outlined,
                 text: ProfileKeys.supportHelp.tr(),
-                subText: ProfileKeys.settingsOff.tr(),
                 haveForwardIcon: true,
               ),
             ),

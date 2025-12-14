@@ -23,6 +23,7 @@ class SettingList extends StatelessWidget {
             haveForwardIcon: false,
           ),
           switchValue: themeCubit.state.isEnglish,
+          isLanguageSetting: true,
           onSwitchChanged: (value) => themeCubit.toggleLanguage(context),
         ),
         const Divider(height: 1, color: Colors.black12),

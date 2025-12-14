@@ -20,7 +20,6 @@ class DashboardParentView extends StatelessWidget {
       children: [
         const DashboardHeader(),
         SizedBox(height: 20.h),
-
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: HeadersSection(
@@ -28,33 +27,9 @@ class DashboardParentView extends StatelessWidget {
             haveSeeAll: false,
           ),
         ),
-
         SizedBox(height: 10.h),
-
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              HeaderSubjectsPerformanceContainer(
-                title: HomeKeys.subjectMath.tr(),
-                subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
-              ),
-              SizedBox(height: 16.h),
-              HeaderSubjectsPerformanceContainer(
-                title: HomeKeys.subjectMath.tr(),
-                subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
-              ),
-              SizedBox(height: 16.h),
-              HeaderSubjectsPerformanceContainer(
-                title: HomeKeys.subjectMath.tr(),
-                subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
-              ),
-            ],
-          ),
-        ),
-
+        SubjectsList(),
         SizedBox(height: 20.h),
-
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: HeadersSection(
@@ -62,16 +37,12 @@ class DashboardParentView extends StatelessWidget {
             haveSeeAll: false,
           ),
         ),
-
         SizedBox(height: 10.h),
-
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: WeeklyReportContainer(),
         ),
-
         SizedBox(height: 20.h),
-
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: HeadersSection(
@@ -79,36 +50,9 @@ class DashboardParentView extends StatelessWidget {
             haveSeeAll: true,
           ),
         ),
-
         SizedBox(height: 10.h),
 
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              LessonProgressCard(
-                title: "Algebra Basics",
-                subject: HomeKeys.subjectMath.tr(),
-                timeAgo: ParentKeys.timeHoursAgo.tr(),
-                percent: 95,
-              ),
-              SizedBox(height: 10.h),
-              LessonProgressCard(
-                title: "Algebra Basics",
-                subject: HomeKeys.subjectMath.tr(),
-                timeAgo: ParentKeys.timeHoursAgo.tr(),
-                percent: 95,
-              ),
-              SizedBox(height: 10.h),
-              LessonProgressCard(
-                title: "Algebra Basics",
-                subject: HomeKeys.subjectMath.tr(),
-                timeAgo: ParentKeys.timeHoursAgo.tr(),
-                percent: 95,
-              ),
-            ],
-          ),
-        ),
+        LessonsProgressList(),
 
         SizedBox(height: 20.h),
 
@@ -170,6 +114,74 @@ class DashboardParentView extends StatelessWidget {
         ),
         SizedBox(height: 20.h),
       ],
+    );
+  }
+}
+
+class LessonsProgressList extends StatelessWidget {
+  const LessonsProgressList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        children: [
+          LessonProgressCard(
+            title: "Algebra Basics",
+            subject: HomeKeys.subjectMath.tr(),
+            timeAgo: ParentKeys.timeHoursAgo.tr(),
+            percent: 95,
+          ),
+          SizedBox(height: 10.h),
+          LessonProgressCard(
+            title: "Algebra Basics",
+            subject: HomeKeys.subjectMath.tr(),
+            timeAgo: ParentKeys.timeHoursAgo.tr(),
+            percent: 95,
+          ),
+          SizedBox(height: 10.h),
+          LessonProgressCard(
+            title: "Algebra Basics",
+            subject: HomeKeys.subjectMath.tr(),
+            timeAgo: ParentKeys.timeHoursAgo.tr(),
+            percent: 95,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SubjectsList extends StatelessWidget {
+  const SubjectsList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        children: [
+          HeaderSubjectsPerformanceContainer(
+            title: HomeKeys.subjectMath.tr(),
+            subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
+          ),
+          SizedBox(height: 16.h),
+          HeaderSubjectsPerformanceContainer(
+            title: HomeKeys.subjectMath.tr(),
+            subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
+          ),
+          SizedBox(height: 16.h),
+          HeaderSubjectsPerformanceContainer(
+            title: HomeKeys.subjectMath.tr(),
+            subTitle: "${ParentKeys.perfCurrentGrade.tr()} A",
+          ),
+        ],
+      ),
     );
   }
 }

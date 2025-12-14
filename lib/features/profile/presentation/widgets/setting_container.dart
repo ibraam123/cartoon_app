@@ -11,10 +11,12 @@ class SettingContainer extends StatelessWidget {
     required this.settingEntity,
     this.switchValue = false,
     this.onSwitchChanged,
+    this.isLanguageSetting = false,
   });
   final SettingEntity settingEntity;
   final bool switchValue;
   final Function(bool)? onSwitchChanged;
+  final bool isLanguageSetting;
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +51,14 @@ class SettingContainer extends StatelessWidget {
                   color: theme.colorScheme.onSurface,
                 ),
               ),
-              Text(
-                settingEntity.subText,
+              settingEntity.subText != null ? Text(
+                settingEntity.subText!,
                 style: TextStyle(
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w400,
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
-              ),
+              ) : Container(),
             ],
           ),
           Spacer(),
@@ -69,7 +71,7 @@ class SettingContainer extends StatelessWidget {
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
           )
-              : ProfileSwitch(value: switchValue, onChanged: onSwitchChanged),
+              : isLanguageSetting? ProfileLanguageSwitch(value: switchValue, onChanged: onSwitchChanged) : ProfileSwitch(value: switchValue, onChanged: onSwitchChanged),
         ],
       ),
     );

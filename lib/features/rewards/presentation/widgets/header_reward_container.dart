@@ -72,7 +72,7 @@ class HeaderRewardsContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.r),
                   child: LinearProgressIndicator(
                     minHeight: 7.h,
-                    backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                    backgroundColor: theme.dividerColor,
                     value: 0.50,
                     valueColor:
                     AlwaysStoppedAnimation(Color(0xFF56B9E6)),
@@ -91,7 +91,7 @@ class HeaderRewardsContainer extends StatelessWidget {
             lineWidth: 8.r,
             percent: 0.75,
             progressColor: AppColors.primary,
-            backgroundColor: theme.colorScheme.surfaceContainerHighest,
+            backgroundColor: theme.dividerColor,
             circularStrokeCap: CircularStrokeCap.round,
             center: Text(
               "75%",
