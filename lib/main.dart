@@ -15,9 +15,6 @@ import 'firebase_options.dart';
 import 'init_dependcies.dart';
 
 Future<void> main() async {
-
-  
-
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -27,8 +24,6 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
 
   await init();
-
-
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -90,7 +85,7 @@ class AppView extends StatelessWidget {
           themeAnimationDuration: const Duration(milliseconds: 300),
           themeAnimationCurve: Curves.easeInOut,
         );
-      }
+      },
     );
   }
 }
